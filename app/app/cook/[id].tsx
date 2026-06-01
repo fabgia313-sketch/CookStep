@@ -1,6 +1,6 @@
 import {
   View, Text, StyleSheet, Pressable, ScrollView, TouchableOpacity,
-  ActivityIndicator, Modal, BackHandler,
+  ActivityIndicator, Modal,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -86,18 +86,7 @@ function SubstitutionModal({ visible, onClose, recipeTitle, ingredients, current
     }
   }, [visible]);
 
-  useEffect(() => {
-    if (!visible) return;
-    const sub = BackHandler.addEventListener('hardwareBackPress', () => {
-      if (modalStep === 'result') {
-        abortRef.current?.abort(); abortRef.current = null;
-        setModalStep('list'); setSelected(null);
-        setStreamText(''); setIsStreaming(false); setStreamError(null);
-      } else { handleClose(); }
-      return true;
-    });
-    return () => sub.remove();
-  }, [visible, modalStep]);
+  // Pas de BackHandler ici — le Modal gère déjà le retour Android via onRequestClose
 
   const handleClose = () => { abortRef.current?.abort(); abortRef.current = null; onClose(); };
 
@@ -108,14 +97,21 @@ function SubstitutionModal({ visible, onClose, recipeTitle, ingredients, current
     setSelected(ingredient); setModalStep('result');
     setStreamText(''); setIsStreaming(true); setStreamError(null);
 
-    await getSubstitution(
-      ingredient.name,
-      { recipeTitle, ingredients, currentStep: currentStepInstruction },
-      (chunk) => setStreamText((prev) => prev + chunk),
-      () => setIsStreaming(false),
-      (error) => { if (!controller.signal.aborted) { setStreamError(error); setIsStreaming(false); } },
-      controller.signal,
-    );
+    try {
+      await getSubstitution(
+        ingredient.name,
+        { recipeTitle, ingredients, currentStep: currentStepInstruction },
+        (chunk) => { if (!controller.signal.aborted) setStreamText((prev) => prev + chunk); },
+        () => { if (!controller.signal.aborted) setIsStreaming(false); },
+        (error) => { if (!controller.signal.aborted) { setStreamError(error); setIsStreaming(false); } },
+        controller.signal,
+      );
+    } catch {
+      if (!controller.signal.aborted) {
+        setStreamError("Une erreur inattendue s'est produite.");
+        setIsStreaming(false);
+      }
+    }
   };
 
   const handleRetry = () => { if (selected) startSubstitution(selected); };
@@ -129,9 +125,13 @@ function SubstitutionModal({ visible, onClose, recipeTitle, ingredients, current
   const headerTitle = modalStep === 'list' ? "J'ai pas ça 🤔" : selected ? `Remplacer ${selected.name}` : "J'ai pas ça 🤔";
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose} statusBarTranslucent>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <Pressable style={modalStyles.overlay} onPress={handleClose}>
-        <Pressable style={modalStyles.sheet} onPress={() => {}}>
+        {/*
+          View + onStartShouldSetResponder stoppe vraiment la propagation en new arch.
+          Pressable onPress={() => {}} ne suffit plus avec newArchEnabled: true.
+        */}
+        <View style={modalStyles.sheet} onStartShouldSetResponder={() => true}>
           <View style={modalStyles.handle} />
           <View style={modalStyles.headerRow}>
             {modalStep === 'result'
@@ -183,7 +183,7 @@ function SubstitutionModal({ visible, onClose, recipeTitle, ingredients, current
               <View style={{ height: Spacing.xl }} />
             </ScrollView>
           )}
-        </Pressable>
+        </View>
       </Pressable>
     </Modal>
   );
