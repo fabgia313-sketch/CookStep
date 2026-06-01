@@ -131,6 +131,44 @@
 
 ---
 
+## Session 4 — Mode Cuisine
+**Date** : 1 juin 2026
+**Outil** : Claude Code
+**Objectif** : Créer le Mode Cuisine — écran le plus important de l'app
+**Statut** : ✅ Terminée
+
+### Ce qui a été fait
+- Réécriture complète de `app/cook/[id].tsx`
+  - **TopBar** : bouton ✕, titre recette tronqué, badge "X/Y" coloré
+  - **Barre de progression** animée (Reanimated `withTiming` sur la width réelle)
+  - **Instruction** en très grand texte (fontSize xl+2, extraBold) — lisible mains mouillées
+  - **Timer circulaire SVG animé** (`react-native-svg` + `Animated.createAnimatedComponent(Circle)`) avec `useAnimatedProps` via Reanimated
+    - Cercle de fond gris + arc coloré animé en douceur (600ms, easing quad)
+    - Tourne dans le sens horaire en partant du haut (`rotation="-90"`)
+    - Passe au vert + affiche ✓ quand le timer est terminé
+  - **Contrôles timer** : Démarrer / Pause / Reprendre / Relancer selon l'état
+  - **Variante sans timer** : si `duration_sec` est null, pas de section timer
+  - **Bouton flottant "J'ai pas ça 🤔"** (position absolute, bottom right, au-dessus de la nav)
+  - **Modal substitution** : bottom sheet avec message "Bientôt disponible ✨" (placeholder IA)
+  - **Navigation Précédent / Suivant** : bien espacée, grande zone de tap, disabled state sur le premier
+  - **Écran de félicitations** : `🎉 Bravo, c'est prêt !` avec animation spring d'entrée, 2 boutons (accueil / recette)
+  - **États loading / error / offline** avec bouton Réessayer
+- Mise à jour `hooks/useTimer.ts` : ajout `done` (timer arrivé à 0 après démarrage) et `started` (booléen reset à chaque changement d'étape)
+- 0 erreur TypeScript (`tsc --noEmit`)
+
+### Fichiers modifiés
+- `app/cook/[id].tsx` (réécriture complète)
+- `hooks/useTimer.ts` (ajout `done` + `started`)
+- `SESSIONS.md` (ce fichier)
+
+### Problèmes rencontrés
+- Aucun — 0 erreur TypeScript dès le premier passage
+
+### Prochaine session
+**Objectif** : Écran Favoris (`app/(tabs)/favorites.tsx`) — liste des recettes sauvegardées, toggle cœur sur les cartes, store Zustand + persistance Supabase
+
+---
+
 _Template pour les prochaines sessions :_
 
 ## Session N — [Nom]

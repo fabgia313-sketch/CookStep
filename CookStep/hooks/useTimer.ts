@@ -1,13 +1,27 @@
 import { useEffect, useRef, useState } from 'react';
 
-export function useTimer(initialSeconds: number) {
+interface UseTimerResult {
+  seconds: number;
+  running: boolean;
+  done: boolean;       // true when timer reached 0 after being started
+  started: boolean;    // true once the user has pressed start at least once
+  start: () => void;
+  pause: () => void;
+  reset: () => void;
+  format: () => string;
+}
+
+export function useTimer(initialSeconds: number): UseTimerResult {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [running, setRunning] = useState(false);
+  const [started, setStarted] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Reset everything when the step changes (initialSeconds changes)
   useEffect(() => {
     setSeconds(initialSeconds);
     setRunning(false);
+    setStarted(false);
   }, [initialSeconds]);
 
   useEffect(() => {
@@ -22,18 +36,26 @@ export function useTimer(initialSeconds: number) {
     };
   }, [running, seconds]);
 
-  const start = () => setRunning(true);
+  const start = () => {
+    setStarted(true);
+    setRunning(true);
+  };
+
   const pause = () => setRunning(false);
+
   const reset = () => {
     setRunning(false);
+    setStarted(false);
     setSeconds(initialSeconds);
   };
 
-  const format = () => {
+  const format = (): string => {
     const m = Math.floor(seconds / 60).toString().padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');
     return `${m}:${s}`;
   };
 
-  return { seconds, running, start, pause, reset, format };
+  const done = started && seconds === 0 && initialSeconds > 0;
+
+  return { seconds, running, done, started, start, pause, reset, format };
 }
