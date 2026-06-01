@@ -1,0 +1,264 @@
+[
+  { "recipe_id": "11111111-0001-0000-0000-000000000000", "order_num": 1, "instruction": "Casser les œufs dans un bol, ajouter une pincée de sel et fouetter brièvement.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0001-0000-0000-000000000000", "order_num": 2, "instruction": "Faire fondre le beurre à feu très doux dans une poêle antiadhésive.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0001-0000-0000-000000000000", "order_num": 3, "instruction": "Verser les œufs et remuer sans arrêt avec une spatule en faisant des 8. Retirer du feu si ça chauffe trop.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0001-0000-0000-000000000000", "order_num": 4, "instruction": "Stopper la cuisson quand les œufs sont encore légèrement coulants — ils finiront de cuire hors feu. Servir immédiatement.", "duration_sec": 30 },
+
+  { "recipe_id": "11111111-0002-0000-0000-000000000000", "order_num": 1, "instruction": "Toaster les tranches de pain jusqu'à ce qu'elles soient bien dorées.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0002-0000-0000-000000000000", "order_num": 2, "instruction": "Couper l'avocat en deux, retirer le noyau, récupérer la chair à la cuillère dans un bol.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0002-0000-0000-000000000000", "order_num": 3, "instruction": "Écraser l'avocat à la fourchette avec le jus de citron, sel et poivre. Garder une texture un peu grossière.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0002-0000-0000-000000000000", "order_num": 4, "instruction": "Tartiner généreusement sur le pain, parsemer de graines de sésame et de flocons de piment si désiré.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0003-0000-0000-000000000000", "order_num": 1, "instruction": "Mélanger farine, sucre, levure et sel dans un grand bol.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0003-0000-0000-000000000000", "order_num": 2, "instruction": "Dans un autre bol, fouetter lait, œufs et beurre fondu. Verser sur les ingrédients secs et mélanger sans trop travailler — des grumeaux, c'est normal.", "duration_sec": 90 },
+  { "recipe_id": "11111111-0003-0000-0000-000000000000", "order_num": 3, "instruction": "Laisser reposer la pâte 5 minutes.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0003-0000-0000-000000000000", "order_num": 4, "instruction": "Faire chauffer une poêle légèrement beurrée à feu moyen. Verser une louche de pâte, cuire jusqu'à ce que des bulles apparaissent en surface, retourner et cuire 1 minute.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0003-0000-0000-000000000000", "order_num": 5, "instruction": "Répéter avec le reste de la pâte. Servir avec sirop d'érable, fruits rouges ou beurre.", "duration_sec": 300 },
+
+  { "recipe_id": "11111111-0004-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 160°C. Mélanger les flocons d'avoine, les noix concassées et la noix de coco râpée dans un grand bol.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0004-0000-0000-000000000000", "order_num": 2, "instruction": "Mélanger le miel, l'huile de coco fondue et la vanille, verser sur le mélange sec et bien mélanger.", "duration_sec": 90 },
+  { "recipe_id": "11111111-0004-0000-0000-000000000000", "order_num": 3, "instruction": "Étaler sur une plaque recouverte de papier cuisson. Enfourner 25 minutes en remuant à mi-cuisson.", "duration_sec": 1500 },
+  { "recipe_id": "11111111-0004-0000-0000-000000000000", "order_num": 4, "instruction": "Laisser refroidir complètement — le granola va croustiller en refroidissant. Ajouter les fruits secs et conserver en boîte hermétique.", "duration_sec": 600 },
+
+  { "recipe_id": "11111111-0005-0000-0000-000000000000", "order_num": 1, "instruction": "Couper la mangue et la banane congelée en morceaux, les placer dans un blender.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0005-0000-0000-000000000000", "order_num": 2, "instruction": "Ajouter le lait de coco et mixer jusqu'à obtenir une texture épaisse et lisse.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0005-0000-0000-000000000000", "order_num": 3, "instruction": "Verser dans un bol et garnir avec les toppings : fruits frais, granola, graines de chia, noix de coco.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0006-0000-0000-000000000000", "order_num": 1, "instruction": "Laver et couper les tomates en tranches ou en quartiers. Émincer finement l'oignon rouge.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0006-0000-0000-000000000000", "order_num": 2, "instruction": "Préparer la vinaigrette : mélanger moutarde, vinaigre de vin, sel, puis incorporer l'huile d'olive en filet.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0006-0000-0000-000000000000", "order_num": 3, "instruction": "Disposer les tomates et l'oignon dans un plat, arroser de vinaigrette, parsemer de basilic frais déchiré.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0007-0000-0000-000000000000", "order_num": 1, "instruction": "Faire cuire les pâtes dans une grande casserole d'eau salée selon le temps indiqué sur le paquet. Garder une tasse d'eau de cuisson avant d'égoutter.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0007-0000-0000-000000000000", "order_num": 2, "instruction": "Pendant ce temps, émincer finement l'ail. Faire chauffer l'huile d'olive à feu moyen et y faire revenir l'ail 2 minutes sans le colorer.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0007-0000-0000-000000000000", "order_num": 3, "instruction": "Ajouter les pâtes égouttées dans la poêle, une louche d'eau de cuisson et le parmesan râpé. Mélanger vigoureusement pour créer une sauce crémeuse.", "duration_sec": 90 },
+  { "recipe_id": "11111111-0007-0000-0000-000000000000", "order_num": 4, "instruction": "Poivrer généreusement, ajouter du persil haché et servir immédiatement.", "duration_sec": 30 },
+
+  { "recipe_id": "11111111-0008-0000-0000-000000000000", "order_num": 1, "instruction": "Casser les œufs dans un bol, saler, poivrer, ajouter les herbes ciselées et fouetter.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0008-0000-0000-000000000000", "order_num": 2, "instruction": "Faire fondre le beurre à feu vif dans une poêle antiadhésive jusqu'à ce qu'il mousse.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0008-0000-0000-000000000000", "order_num": 3, "instruction": "Verser les œufs d'un coup. Avec une spatule, ramener les bords vers le centre pendant 30 secondes.", "duration_sec": 30 },
+  { "recipe_id": "11111111-0008-0000-0000-000000000000", "order_num": 4, "instruction": "Quand les œufs sont encore légèrement baveux, plier l'omelette en deux et faire glisser dans l'assiette.", "duration_sec": 30 },
+
+  { "recipe_id": "11111111-0009-0000-0000-000000000000", "order_num": 1, "instruction": "Faire revenir l'ail émincé dans l'huile d'olive 1 minute à feu moyen.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0009-0000-0000-000000000000", "order_num": 2, "instruction": "Ajouter les tomates concassées, le sucre, sel et poivre. Laisser mijoter 15 minutes à feu doux.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0009-0000-0000-000000000000", "order_num": 3, "instruction": "Mixer finement la soupe avec un mixeur plongeant. Ajuster l'assaisonnement.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0009-0000-0000-000000000000", "order_num": 4, "instruction": "Servir avec un filet de crème, des feuilles de basilic et des croûtons.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0010-0000-0000-000000000000", "order_num": 1, "instruction": "Faire revenir les épinards à la poêle avec un peu d'ail jusqu'à ce qu'ils réduisent. Saler et réserver.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0010-0000-0000-000000000000", "order_num": 2, "instruction": "Poser une tortilla dans la poêle à feu moyen. Déposer du fromage râpé sur une moitié, puis les épinards.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0010-0000-0000-000000000000", "order_num": 3, "instruction": "Replier la tortilla en demi-lune et cuire 2 minutes de chaque côté jusqu'à ce qu'elle soit dorée et le fromage fondu.", "duration_sec": 240 },
+  { "recipe_id": "11111111-0010-0000-0000-000000000000", "order_num": 4, "instruction": "Couper en triangles et servir avec de la crème fraîche ou du guacamole.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0011-0000-0000-000000000000", "order_num": 1, "instruction": "Cuire les œufs 9 minutes dans l'eau bouillante, refroidir, écaler et couper en quartiers.", "duration_sec": 540 },
+  { "recipe_id": "11111111-0011-0000-0000-000000000000", "order_num": 2, "instruction": "Cuire les haricots verts 5 minutes à l'eau bouillante salée. Égoutter et refroidir.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0011-0000-0000-000000000000", "order_num": 3, "instruction": "Préparer la vinaigrette : anchois écrasés, ail, citron, huile d'olive, poivre.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0011-0000-0000-000000000000", "order_num": 4, "instruction": "Dresser dans un grand plat : laitue, tomates, haricots, thon émietté, olives, œufs. Arroser de vinaigrette.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0012-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 180°C. Foncer un moule à tarte avec la pâte brisée, piquer le fond à la fourchette.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0012-0000-0000-000000000000", "order_num": 2, "instruction": "Faire revenir les lardons à la poêle sans matière grasse jusqu'à légère coloration.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0012-0000-0000-000000000000", "order_num": 3, "instruction": "Fouetter les œufs avec la crème, sel, poivre et muscade.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0012-0000-0000-000000000000", "order_num": 4, "instruction": "Répartir les lardons sur le fond de tarte, verser l'appareil crème-œuf. Enfourner 35 minutes jusqu'à dorure.", "duration_sec": 2100 },
+
+  { "recipe_id": "11111111-0013-0000-0000-000000000000", "order_num": 1, "instruction": "Émincer finement les oignons. Faire fondre le beurre dans une grande casserole à feu doux.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0013-0000-0000-000000000000", "order_num": 2, "instruction": "Ajouter les oignons et les faire caraméliser à feu doux pendant 30 minutes en remuant régulièrement. Ils doivent être bien dorés.", "duration_sec": 1800 },
+  { "recipe_id": "11111111-0013-0000-0000-000000000000", "order_num": 3, "instruction": "Déglacer avec le vin blanc, laisser réduire 2 minutes, puis ajouter le bouillon de bœuf chaud. Saler, poivrer. Mijoter 15 minutes.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0013-0000-0000-000000000000", "order_num": 4, "instruction": "Verser la soupe dans des bols allant au four. Déposer des croûtons de pain, recouvrir de gruyère râpé généreusement.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0013-0000-0000-000000000000", "order_num": 5, "instruction": "Passer sous le grill 5 minutes jusqu'à ce que le fromage soit doré et bouillonnant.", "duration_sec": 300 },
+
+  { "recipe_id": "11111111-0014-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 160°C. Frotter le plat à gratin avec la gousse d'ail coupée, puis le beurrer.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0014-0000-0000-000000000000", "order_num": 2, "instruction": "Éplucher et trancher finement les pommes de terre (2mm). Ne pas les laver — l'amidon est important.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0014-0000-0000-000000000000", "order_num": 3, "instruction": "Mélanger la crème, le lait, sel, poivre, muscade et l'ail pressé dans un bol.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0014-0000-0000-000000000000", "order_num": 4, "instruction": "Disposer les pommes de terre en couches dans le plat, verser le mélange crème dessus.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0014-0000-0000-000000000000", "order_num": 5, "instruction": "Enfourner 1h15. Le dessus doit être doré et une pointe de couteau traverser sans résistance.", "duration_sec": 4500 },
+
+  { "recipe_id": "11111111-0015-0000-0000-000000000000", "order_num": 1, "instruction": "Couper le veau en gros cubes. Les faire dorer dans le beurre à feu vif par petites quantités. Réserver.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0015-0000-0000-000000000000", "order_num": 2, "instruction": "Dans la même cocotte, faire fondre les oignons et carottes coupées 5 minutes. Remettre la viande.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0015-0000-0000-000000000000", "order_num": 3, "instruction": "Ajouter le bouquet garni, couvrir de bouillon. Laisser mijoter à couvert 1h30 à feu doux.", "duration_sec": 5400 },
+  { "recipe_id": "11111111-0015-0000-0000-000000000000", "order_num": 4, "instruction": "Préparer un roux blanc : faire fondre le beurre, ajouter la farine, cuire 2 minutes, puis incorporer le bouillon de cuisson filtré.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0015-0000-0000-000000000000", "order_num": 5, "instruction": "Ajouter la crème fraîche et le jus de citron. Napper la viande et les champignons sautés. Servir avec du riz.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0016-0000-0000-000000000000", "order_num": 1, "instruction": "Sortir le poulet du frigo 30 min avant cuisson. Préchauffer le four à 200°C.", "duration_sec": 1800 },
+  { "recipe_id": "11111111-0016-0000-0000-000000000000", "order_num": 2, "instruction": "Glisser les gousses d'ail et les branches de thym sous la peau et dans la cavité. Placer les tranches de citron sur le dessus.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0016-0000-0000-000000000000", "order_num": 3, "instruction": "Badigeonner d'huile d'olive, saler et poivrer généreusement.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0016-0000-0000-000000000000", "order_num": 4, "instruction": "Enfourner 1h15 en arrosant toutes les 20 minutes avec le jus de cuisson. Laisser reposer 10 minutes avant de découper.", "duration_sec": 4500 },
+
+  { "recipe_id": "11111111-0017-0000-0000-000000000000", "order_num": 1, "instruction": "Couper les courgettes, aubergines, poivrons et tomates en dés. Faire revenir chaque légume séparément dans l'huile d'olive.", "duration_sec": 1200 },
+  { "recipe_id": "11111111-0017-0000-0000-000000000000", "order_num": 2, "instruction": "Faire revenir les oignons et l'ail dans la même cocotte. Ajouter tous les légumes, thym, laurier.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0017-0000-0000-000000000000", "order_num": 3, "instruction": "Mijoter à feu doux à couvert 30 minutes, puis à découvert encore 15 minutes pour que le jus réduise.", "duration_sec": 2700 },
+  { "recipe_id": "11111111-0017-0000-0000-000000000000", "order_num": 4, "instruction": "Assaisonner, ajouter le basilic frais au dernier moment. Délicieux chaud ou à température ambiante.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0018-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 180°C. Étaler la pâte brisée dans le moule, piquer le fond.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0018-0000-0000-000000000000", "order_num": 2, "instruction": "Laver les poireaux, les émincer en rondelles. Les faire fondre dans le beurre 15 minutes à feu doux avec du sel.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0018-0000-0000-000000000000", "order_num": 3, "instruction": "Fouetter les œufs, la crème fraîche, sel, poivre et muscade.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0018-0000-0000-000000000000", "order_num": 4, "instruction": "Répartir les poireaux sur le fond de tarte, verser l'appareil. Enfourner 35 minutes.", "duration_sec": 2100 },
+
+  { "recipe_id": "11111111-0019-0000-0000-000000000000", "order_num": 1, "instruction": "Faire chauffer l'huile dans une grande poêle. Faire revenir l'oignon émincé 5 minutes.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0019-0000-0000-000000000000", "order_num": 2, "instruction": "Ajouter l'ail, le gingembre râpé, le curcuma, le cumin et la coriandre. Cuire 1 minute en remuant.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0019-0000-0000-000000000000", "order_num": 3, "instruction": "Incorporer les tomates concassées et les pois chiches égouttés. Laisser mijoter 20 minutes à feu doux.", "duration_sec": 1200 },
+  { "recipe_id": "11111111-0019-0000-0000-000000000000", "order_num": 4, "instruction": "Ajuster le sel, ajouter la coriandre fraîche. Servir avec du riz basmati ou du pain naan.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0020-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 200°C. Couper les légumes en morceaux, les arroser d'huile d'olive, saler, et rôtir 25 minutes.", "duration_sec": 1500 },
+  { "recipe_id": "11111111-0020-0000-0000-000000000000", "order_num": 2, "instruction": "Rincer le quinoa, le cuire dans 2 fois son volume d'eau salée pendant 15 minutes. Égoutter.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0020-0000-0000-000000000000", "order_num": 3, "instruction": "Préparer la sauce tahini : mélanger tahini, jus de citron, ail, eau et sel.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0020-0000-0000-000000000000", "order_num": 4, "instruction": "Assembler les bols : quinoa, légumes rôtis, avocat tranché, sauce tahini, graines de sésame.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0021-0000-0000-000000000000", "order_num": 1, "instruction": "Faire revenir l'oignon dans l'huile de coco 5 minutes. Ajouter l'ail et le gingembre, cuire 1 minute.", "duration_sec": 360 },
+  { "recipe_id": "11111111-0021-0000-0000-000000000000", "order_num": 2, "instruction": "Ajouter les lentilles corail rincées, le curcuma, le cumin et les tomates concassées. Bien mélanger.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0021-0000-0000-000000000000", "order_num": 3, "instruction": "Verser le lait de coco et le bouillon. Porter à ébullition puis laisser mijoter 20 minutes.", "duration_sec": 1200 },
+  { "recipe_id": "11111111-0021-0000-0000-000000000000", "order_num": 4, "instruction": "Le dahl doit être crémeux et épais. Assaisonner, presser le citron, garnir de coriandre et servir avec du riz.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0022-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 180°C. Couper les légumes en tranches très fines (3mm) — une mandoline idéalement.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0022-0000-0000-000000000000", "order_num": 2, "instruction": "Huiler le plat à gratin. Faire une première couche de pommes de terre, assaisonner, huiler légèrement.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0022-0000-0000-000000000000", "order_num": 3, "instruction": "Alterner les couches de tomates, courgettes et pommes de terre en les faisant se chevaucher joliment.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0022-0000-0000-000000000000", "order_num": 4, "instruction": "Arroser d'huile d'olive, parsemer de thym et d'herbes de Provence. Enfourner 1h jusqu'à dorure.", "duration_sec": 3600 },
+
+  { "recipe_id": "11111111-0023-0000-0000-000000000000", "order_num": 1, "instruction": "Préparer la sauce maison : mayonnaise, ketchup, cornichons, paprika fumé, sel.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0023-0000-0000-000000000000", "order_num": 2, "instruction": "Former les steaks hachés en pressant bien. Saler et poivrer juste avant la cuisson.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0023-0000-0000-000000000000", "order_num": 3, "instruction": "Cuire les steaks dans une poêle chaude sans matière grasse, 3 min par face. Poser le cheddar 1 min avant la fin.", "duration_sec": 420 },
+  { "recipe_id": "11111111-0023-0000-0000-000000000000", "order_num": 4, "instruction": "Toaster les brioche. Assembler : base, sauce, salade, steak, oignon, cornichon, sauce, chapeau.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0024-0000-0000-000000000000", "order_num": 1, "instruction": "Mariner le poulet émincé : cumin, paprika, ail, citron, huile. Laisser reposer 15 minutes.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0024-0000-0000-000000000000", "order_num": 2, "instruction": "Préparer le pico de gallo : tomates, oignon, coriandre, jalapeño, citron vert, sel.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0024-0000-0000-000000000000", "order_num": 3, "instruction": "Faire griller le poulet à feu vif 3-4 minutes de chaque côté. Découper en lamelles.", "duration_sec": 480 },
+  { "recipe_id": "11111111-0024-0000-0000-000000000000", "order_num": 4, "instruction": "Chauffer les tortillas dans la poêle sèche 30 secondes. Garnir : poulet, guacamole, pico de gallo, crème fraîche.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0025-0000-0000-000000000000", "order_num": 1, "instruction": "Faire tremper les nouilles de riz 10 minutes dans l'eau tiède. Égoutter.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0025-0000-0000-000000000000", "order_num": 2, "instruction": "Mélanger la sauce : sauce tamarind, sauce de poisson, sucre de palme.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0025-0000-0000-000000000000", "order_num": 3, "instruction": "Faire sauter les crevettes dans le wok huilé à feu très vif, 2 minutes. Pousser sur le côté, brouiller l'œuf.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0025-0000-0000-000000000000", "order_num": 4, "instruction": "Ajouter les nouilles et la sauce, mélanger rapidement. Ajouter les germes de soja et la ciboulette.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0025-0000-0000-000000000000", "order_num": 5, "instruction": "Servir garni de cacahuètes concassées, quartier de citron vert et piment en flocons.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0026-0000-0000-000000000000", "order_num": 1, "instruction": "Cuire le riz la veille ou le laisser refroidir complètement — le riz froid est indispensable.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0026-0000-0000-000000000000", "order_num": 2, "instruction": "Faire chauffer l'huile dans un wok ou grande poêle à feu très vif. Faire sauter les dés de jambon et les petits pois 2 minutes.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0026-0000-0000-000000000000", "order_num": 3, "instruction": "Pousser tout sur le côté, brouiller 2 œufs dans la poêle vide.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0026-0000-0000-000000000000", "order_num": 4, "instruction": "Ajouter le riz froid, la sauce soja, mélanger en cassant les grumeaux. Cuire encore 2 minutes à feu vif.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0027-0000-0000-000000000000", "order_num": 1, "instruction": "Faire revenir l'oignon et l'ail dans l'huile d'olive 5 minutes.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0027-0000-0000-000000000000", "order_num": 2, "instruction": "Ajouter le poivron coupé, le paprika et le cumin. Cuire 2 minutes.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0027-0000-0000-000000000000", "order_num": 3, "instruction": "Verser les tomates concassées, laisser réduire 10 minutes à feu moyen. La sauce doit épaissir.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0027-0000-0000-000000000000", "order_num": 4, "instruction": "Creuser des puits dans la sauce, casser un œuf dans chacun. Couvrir et cuire 5 minutes — les blancs cuits, les jaunes coulants.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0027-0000-0000-000000000000", "order_num": 5, "instruction": "Servir directement dans la poêle avec du pain pita ou de la baguette.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0028-0000-0000-000000000000", "order_num": 1, "instruction": "Faire dorer les morceaux de poulet dans l'huile d'olive sur toutes les faces. Réserver.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0028-0000-0000-000000000000", "order_num": 2, "instruction": "Faire revenir l'oignon et l'ail. Ajouter curcuma, gingembre, cumin, cannelle. Cuire 1 minute.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0028-0000-0000-000000000000", "order_num": 3, "instruction": "Remettre le poulet, ajouter les olives et le citron confit émincé. Couvrir de bouillon de poulet.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0028-0000-0000-000000000000", "order_num": 4, "instruction": "Laisser mijoter à couvert 45 minutes à feu doux. Vérifier l'assaisonnement, ajouter la coriandre fraîche.", "duration_sec": 2700 },
+
+  { "recipe_id": "11111111-0029-0000-0000-000000000000", "order_num": 1, "instruction": "Faire revenir l'échalote dans le beurre jusqu'à transparence. Ajouter les champignons, cuire 5 minutes.", "duration_sec": 480 },
+  { "recipe_id": "11111111-0029-0000-0000-000000000000", "order_num": 2, "instruction": "Ajouter le riz arborio, faire nacrer 2 minutes en remuant.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0029-0000-0000-000000000000", "order_num": 3, "instruction": "Déglacer avec le vin blanc, laisser absorber complètement.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0029-0000-0000-000000000000", "order_num": 4, "instruction": "Ajouter le bouillon chaud louche par louche en remuant constamment. Cela prend 18 minutes environ.", "duration_sec": 1080 },
+  { "recipe_id": "11111111-0029-0000-0000-000000000000", "order_num": 5, "instruction": "Hors du feu, incorporer le beurre froid et le parmesan. Couvrir 2 minutes avant de servir.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0030-0000-0000-000000000000", "order_num": 1, "instruction": "Mélanger le porc haché, chou finement émincé, sauce soja, gingembre, sésame, oignon vert.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0030-0000-0000-000000000000", "order_num": 2, "instruction": "Poser une cuillère à café de farce au centre de chaque disque de pâte. Humidifier les bords.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0030-0000-0000-000000000000", "order_num": 3, "instruction": "Plier en demi-lune et faire des petits plis pour sceller. Répéter pour tous.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0030-0000-0000-000000000000", "order_num": 4, "instruction": "Cuire les gyoza dans une poêle huilée 2 minutes à feu moyen sans couvercle pour dorer le fond.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0030-0000-0000-000000000000", "order_num": 5, "instruction": "Verser un fond d'eau, couvrir immédiatement, cuire à la vapeur 5 minutes. Ôter le couvercle, laisser sécher 1 minute.", "duration_sec": 360 },
+
+  { "recipe_id": "11111111-0031-0000-0000-000000000000", "order_num": 1, "instruction": "Nettoyer les moules : gratter les coquilles, arracher le filament. Éliminer celles qui sont ouvertes.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0031-0000-0000-000000000000", "order_num": 2, "instruction": "Faire suer les échalotes émincées dans le beurre 2 minutes. Ajouter le vin blanc et le laurier.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0031-0000-0000-000000000000", "order_num": 3, "instruction": "Ajouter les moules, couvrir et cuire à feu vif 5 minutes en secouant la casserole.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0031-0000-0000-000000000000", "order_num": 4, "instruction": "Les moules ouvertes sont cuites. Éliminer celles qui restent fermées. Parsemer de persil, servir immédiatement.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0032-0000-0000-000000000000", "order_num": 1, "instruction": "Préparer la béchamel : faire fondre le beurre, ajouter la farine, fouetter, verser le lait chaud petit à petit. Cuire jusqu'à épaississement.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0032-0000-0000-000000000000", "order_num": 2, "instruction": "Beurrer le pain de mie sur une face. Poser le côté beurré vers le bas dans la poêle.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0032-0000-0000-000000000000", "order_num": 3, "instruction": "Étaler la béchamel, poser les tranches de jambon, couvrir de gruyère râpé.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0032-0000-0000-000000000000", "order_num": 4, "instruction": "Couvrir avec la deuxième tranche de pain beurrée. Passer sous le grill 5 minutes jusqu'à gratinage doré.", "duration_sec": 300 },
+
+  { "recipe_id": "11111111-0033-0000-0000-000000000000", "order_num": 1, "instruction": "Préparer la pâte : farine, eau, sel, pétrir 5 minutes. Laisser reposer 30 minutes.", "duration_sec": 1800 },
+  { "recipe_id": "11111111-0033-0000-0000-000000000000", "order_num": 2, "instruction": "Préchauffer le four à 250°C (ou au maximum). Émincer finement l'oignon.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0033-0000-0000-000000000000", "order_num": 3, "instruction": "Étaler la pâte très finement sur une plaque. Tartiner de fromage blanc assaisonné.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0033-0000-0000-000000000000", "order_num": 4, "instruction": "Répartir les lardons et les oignons. Enfourner 10-12 minutes jusqu'à ce que les bords soient croustillants.", "duration_sec": 720 },
+
+  { "recipe_id": "11111111-0034-0000-0000-000000000000", "order_num": 1, "instruction": "Couper le bœuf en gros cubes. Les sécher et les faire dorer par petites quantités dans l'huile très chaude.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0034-0000-0000-000000000000", "order_num": 2, "instruction": "Faire revenir les oignons, carottes, ail dans la cocotte. Remettre la viande, saupoudrer de farine.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0034-0000-0000-000000000000", "order_num": 3, "instruction": "Verser le vin rouge, le bouillon, ajouter le bouquet garni. Porter à frémissement.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0034-0000-0000-000000000000", "order_num": 4, "instruction": "Couvrir et laisser mijoter à feu très doux 2h30. La viande doit se défaire facilement.", "duration_sec": 9000 },
+  { "recipe_id": "11111111-0034-0000-0000-000000000000", "order_num": 5, "instruction": "Faire sauter les champignons et lardons séparément. Ajouter à la cocotte 20 minutes avant de servir.", "duration_sec": 1200 },
+
+  { "recipe_id": "11111111-0035-0000-0000-000000000000", "order_num": 1, "instruction": "Préparer le levain-levure. Pétrir la pâte farine-sel-sucre-lait-œuf-levure. Incorporer 250g de beurre en morceaux par petites quantités en pétrissant.", "duration_sec": 1800 },
+  { "recipe_id": "11111111-0035-0000-0000-000000000000", "order_num": 2, "instruction": "Laisser lever la pâte 2h à température ambiante puis 8h au frigo.", "duration_sec": 36000 },
+  { "recipe_id": "11111111-0035-0000-0000-000000000000", "order_num": 3, "instruction": "Faire les tours : étaler la pâte, déposer 250g de beurre de tourage, plier en 3. Répéter 3 fois en refroidissant entre chaque.", "duration_sec": 5400 },
+  { "recipe_id": "11111111-0035-0000-0000-000000000000", "order_num": 4, "instruction": "Découper en triangles, rouler en croissants. Dorer à l'œuf, laisser lever 2h.", "duration_sec": 7200 },
+  { "recipe_id": "11111111-0035-0000-0000-000000000000", "order_num": 5, "instruction": "Préchauffer le four à 180°C. Dorer une deuxième fois, enfourner 15 minutes jusqu'à beau feuilletage doré.", "duration_sec": 900 },
+
+  { "recipe_id": "11111111-0036-0000-0000-000000000000", "order_num": 1, "instruction": "Faire fondre le chocolat cassé en morceaux avec le beurre au bain-marie. Laisser tiédir.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0036-0000-0000-000000000000", "order_num": 2, "instruction": "Séparer les blancs des jaunes. Incorporer les jaunes un à un au chocolat fondu.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0036-0000-0000-000000000000", "order_num": 3, "instruction": "Monter les blancs en neige très ferme avec une pincée de sel.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0036-0000-0000-000000000000", "order_num": 4, "instruction": "Incorporer les blancs en 3 fois au chocolat avec une maryse, en soulevant délicatement pour ne pas faire retomber.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0036-0000-0000-000000000000", "order_num": 5, "instruction": "Réfrigérer au moins 2 heures avant de servir.", "duration_sec": 7200 },
+
+  { "recipe_id": "11111111-0037-0000-0000-000000000000", "order_num": 1, "instruction": "Préparer la pâte sablée : sabler farine et beurre froid, ajouter jaune d'œuf et eau froide. Réfrigérer 30 min, foncer le moule, cuire à blanc 20 min à 170°C.", "duration_sec": 3000 },
+  { "recipe_id": "11111111-0037-0000-0000-000000000000", "order_num": 2, "instruction": "Préparer le curd citron : faire chauffer jus de citron, zestes, sucre. Ajouter les œufs et le beurre, cuire jusqu'à épaississement en remuant.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0037-0000-0000-000000000000", "order_num": 3, "instruction": "Verser le curd dans le fond de tarte cuit. Réfrigérer 1h.", "duration_sec": 3600 },
+  { "recipe_id": "11111111-0037-0000-0000-000000000000", "order_num": 4, "instruction": "Préparer la meringue italienne : cuire le sirop à 121°C. Monter les blancs, verser le sirop en filet en continuant de fouetter jusqu'à refroidissement.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0037-0000-0000-000000000000", "order_num": 5, "instruction": "Pocher ou étaler la meringue sur la tarte. Dorer au chalumeau.", "duration_sec": 300 },
+
+  { "recipe_id": "11111111-0038-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 200°C. Beurrer et fariner 4 ramequins.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0038-0000-0000-000000000000", "order_num": 2, "instruction": "Faire fondre le chocolat et le beurre au bain-marie. Laisser tiédir.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0038-0000-0000-000000000000", "order_num": 3, "instruction": "Fouetter les œufs, les jaunes et le sucre jusqu'à blanchiment. Ajouter le chocolat fondu, puis la farine tamisée.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0038-0000-0000-000000000000", "order_num": 4, "instruction": "Répartir dans les ramequins. Réfrigérer 15 minutes. Enfourner exactement 10 minutes. Démouler et servir immédiatement.", "duration_sec": 1500 },
+
+  { "recipe_id": "11111111-0039-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 150°C. Faire infuser la gousse de vanille fendue dans la crème chaude 10 minutes.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0039-0000-0000-000000000000", "order_num": 2, "instruction": "Fouetter les jaunes d'œuf avec le sucre sans faire blanchir. Ajouter la crème vanillée filtrée en remuant.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0039-0000-0000-000000000000", "order_num": 3, "instruction": "Verser dans des ramequins, enfourner au bain-marie 45 minutes. La crème doit trembler légèrement au centre.", "duration_sec": 2700 },
+  { "recipe_id": "11111111-0039-0000-0000-000000000000", "order_num": 4, "instruction": "Refroidir puis réfrigérer 4h minimum. Au moment de servir, saupoudrer de cassonade et brûler au chalumeau.", "duration_sec": 14400 },
+
+  { "recipe_id": "11111111-0040-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 180°C. Beurrer un plat à gratin.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0040-0000-0000-000000000000", "order_num": 2, "instruction": "Fouetter les œufs et le sucre jusqu'à légère mousse. Ajouter la farine, le lait, la crème et la vanille.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0040-0000-0000-000000000000", "order_num": 3, "instruction": "Disposer les cerises dans le plat (dénoyautées ou non selon tradition). Verser l'appareil dessus.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0040-0000-0000-000000000000", "order_num": 4, "instruction": "Enfourner 40 minutes jusqu'à ce que le clafoutis soit doré et gonflé. Saupoudrer de sucre glace avant de servir tiède.", "duration_sec": 2400 },
+
+  { "recipe_id": "11111111-0041-0000-0000-000000000000", "order_num": 1, "instruction": "Séparer les blancs des jaunes. Fouetter les jaunes avec le sucre jusqu'à blanchiment.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0041-0000-0000-000000000000", "order_num": 2, "instruction": "Incorporer le mascarpone au mélange jaunes-sucre, lisser à la spatule.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0041-0000-0000-000000000000", "order_num": 3, "instruction": "Monter les blancs en neige ferme. Incorporer délicatement à la crème mascarpone.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0041-0000-0000-000000000000", "order_num": 4, "instruction": "Tremper rapidement les biscuits dans le café froid. Monter en couches : biscuits, crème, cacao. Répéter.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0041-0000-0000-000000000000", "order_num": 5, "instruction": "Réfrigérer au moins 4 heures. Saupoudrer de cacao en poudre juste avant de servir.", "duration_sec": 14400 },
+
+  { "recipe_id": "11111111-0042-0000-0000-000000000000", "order_num": 1, "instruction": "Préchauffer le four à 200°C. Beurrer et chemiser de gruyère 4 ramequins à soufflé. Réfrigérer.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0042-0000-0000-000000000000", "order_num": 2, "instruction": "Préparer une béchamel épaisse. Hors du feu, incorporer les jaunes d'œuf et le gruyère râpé.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0042-0000-0000-000000000000", "order_num": 3, "instruction": "Monter les blancs en neige très ferme. Incorporer d'abord 1/4 des blancs vigoureusement pour détendre, puis le reste délicatement.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0042-0000-0000-000000000000", "order_num": 4, "instruction": "Remplir les ramequins aux 3/4. Enfourner 12 minutes SANS ouvrir le four. Servir instantanément.", "duration_sec": 720 },
+
+  { "recipe_id": "11111111-0043-0000-0000-000000000000", "order_num": 1, "instruction": "Sortir le saumon du frigo 10 minutes avant. Saler et poivrer côté chair uniquement.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0043-0000-0000-000000000000", "order_num": 2, "instruction": "Faire chauffer l'huile dans une poêle à feu vif. Poser le saumon côté peau et appuyer 30 secondes avec une spatule.", "duration_sec": 30 },
+  { "recipe_id": "11111111-0043-0000-0000-000000000000", "order_num": 3, "instruction": "Réduire à feu moyen, cuire 6-7 minutes côté peau uniquement jusqu'à ce que la chair soit cuite aux 3/4.", "duration_sec": 420 },
+  { "recipe_id": "11111111-0043-0000-0000-000000000000", "order_num": 4, "instruction": "Retourner 30 secondes. Préparer le beurre citron-câpres : faire mousser le beurre, ajouter les câpres et le citron. Napper le saumon.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0044-0000-0000-000000000000", "order_num": 1, "instruction": "Couper tous les légumes en julienne ou en morceaux de taille similaire.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0044-0000-0000-000000000000", "order_num": 2, "instruction": "Mélanger sauce soja, huile de sésame, gingembre râpé et une pincée de sucre dans un bol.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0044-0000-0000-000000000000", "order_num": 3, "instruction": "Faire chauffer le wok à feu maximum avec l'huile neutre. Cuire les légumes en commençant par les plus durs, 4-5 minutes au total.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0044-0000-0000-000000000000", "order_num": 4, "instruction": "Verser la sauce, mélanger rapidement 1 minute. Garnir de sésame grillé.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0045-0000-0000-000000000000", "order_num": 1, "instruction": "Égoutter et rincer les pois chiches. En garder quelques-uns de côté pour la décoration.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0045-0000-0000-000000000000", "order_num": 2, "instruction": "Mixer pois chiches, tahini, ail, jus de citron et cumin avec 3 cuillères d'eau froide.", "duration_sec": 90 },
+  { "recipe_id": "11111111-0045-0000-0000-000000000000", "order_num": 3, "instruction": "Mixer 3-4 minutes jusqu'à texture très lisse. Rectifier sel, citron, eau selon la texture souhaitée.", "duration_sec": 240 },
+  { "recipe_id": "11111111-0045-0000-0000-000000000000", "order_num": 4, "instruction": "Dresser dans un plat, faire un creux au centre, verser de l'huile d'olive, poser les pois chiches entiers et saupoudrer de paprika.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0046-0000-0000-000000000000", "order_num": 1, "instruction": "Cuire le riz japonais, laisser tiédir. Assaisonner de vinaigre de riz, sucre et sel.", "duration_sec": 900 },
+  { "recipe_id": "11111111-0046-0000-0000-000000000000", "order_num": 2, "instruction": "Couper le thon en dés. Mariner 10 minutes dans sauce soja, huile de sésame et un peu de jus de citron vert.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0046-0000-0000-000000000000", "order_num": 3, "instruction": "Trancher l'avocat, décongeler les edamame.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0046-0000-0000-000000000000", "order_num": 4, "instruction": "Assembler le bol : riz, thon mariné, avocat, edamame, lamelles de concombre. Napper de sauce sésame-soja, garnir de graines de sésame.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0047-0000-0000-000000000000", "order_num": 1, "instruction": "Préparer la bolognaise : faire revenir oignon, ail, carotte. Ajouter le bœuf haché, dorer. Verser tomates concassées et vin rouge. Mijoter 1h.", "duration_sec": 3600 },
+  { "recipe_id": "11111111-0047-0000-0000-000000000000", "order_num": 2, "instruction": "Préparer la béchamel : beurre fondu, farine, lait chaud, muscade, sel. Fouetter jusqu'à consistance épaisse.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0047-0000-0000-000000000000", "order_num": 3, "instruction": "Préchauffer le four à 180°C. Huiler un grand plat. Monter les lasagnes : béchamel, pâtes, bolognaise, parmesan. Répéter 3-4 fois.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0047-0000-0000-000000000000", "order_num": 4, "instruction": "Finir par une couche de béchamel généreuse et de parmesan. Couvrir de papier alu.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0047-0000-0000-000000000000", "order_num": 5, "instruction": "Enfourner 30 minutes couvert, puis 15 minutes à découvert pour gratiner. Laisser reposer 10 minutes avant de couper.", "duration_sec": 2700 },
+
+  { "recipe_id": "11111111-0048-0000-0000-000000000000", "order_num": 1, "instruction": "Mélanger la farine de sarrasin avec l'eau et le sel. Laisser reposer 1h minimum.", "duration_sec": 3600 },
+  { "recipe_id": "11111111-0048-0000-0000-000000000000", "order_num": 2, "instruction": "Faire chauffer la poêle à crêpes à feu vif. La beurrer légèrement avec un papier absorbant.", "duration_sec": 120 },
+  { "recipe_id": "11111111-0048-0000-0000-000000000000", "order_num": 3, "instruction": "Verser une louche de pâte, étaler rapidement en tournant la poêle. Cuire 2 minutes jusqu'aux bords dorés.", "duration_sec": 180 },
+  { "recipe_id": "11111111-0048-0000-0000-000000000000", "order_num": 4, "instruction": "Retourner et garnir selon votre envie : œuf-jambon-fromage classique, ou chèvre-miel, ou champignons-crème.", "duration_sec": 120 },
+
+  { "recipe_id": "11111111-0049-0000-0000-000000000000", "order_num": 1, "instruction": "Battre les œufs avec le lait, le sucre vanillé et la vanille liquide dans un bol creux.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0049-0000-0000-000000000000", "order_num": 2, "instruction": "Tremper les tranches de brioche rassie dans le mélange œuf-lait 30 secondes de chaque côté.", "duration_sec": 60 },
+  { "recipe_id": "11111111-0049-0000-0000-000000000000", "order_num": 3, "instruction": "Faire fondre le beurre dans une poêle jusqu'à couleur noisette. Cuire les tranches 2 minutes par face jusqu'à belle coloration.", "duration_sec": 240 },
+  { "recipe_id": "11111111-0049-0000-0000-000000000000", "order_num": 4, "instruction": "Servir saupoudré de sucre glace, avec des fruits de saison ou de la confiture.", "duration_sec": 60 },
+
+  { "recipe_id": "11111111-0050-0000-0000-000000000000", "order_num": 1, "instruction": "Préparer le bouillon : faire revenir carcasse ou morceaux de poulet avec oignon, gingembre, ail. Ajouter sauce soja, mirin, dashi. Laisser mijoter 1h.", "duration_sec": 3600 },
+  { "recipe_id": "11111111-0050-0000-0000-000000000000", "order_num": 2, "instruction": "Cuire les œufs mollets 6 minutes dans l'eau bouillante, refroidir et écaler. Les mariner dans sauce soja + mirin 30 min.", "duration_sec": 2160 },
+  { "recipe_id": "11111111-0050-0000-0000-000000000000", "order_num": 3, "instruction": "Faire revenir les suprêmes de poulet à la poêle, les trancher.", "duration_sec": 600 },
+  { "recipe_id": "11111111-0050-0000-0000-000000000000", "order_num": 4, "instruction": "Cuire les nouilles selon les instructions. Les répartir dans les bols.", "duration_sec": 300 },
+  { "recipe_id": "11111111-0050-0000-0000-000000000000", "order_num": 5, "instruction": "Verser le bouillon chaud filtré. Déposer le poulet tranché, l'œuf coupé en deux, le nori, les oignons verts et les champignons.", "duration_sec": 120 }
+]

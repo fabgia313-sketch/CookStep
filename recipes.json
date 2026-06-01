@@ -1,0 +1,502 @@
+[
+  {
+    "id": "11111111-0001-0000-0000-000000000000",
+    "title": "Œufs brouillés crémeux",
+    "description": "Le classique du petit-déjeuner, onctueux à souhait. Prêt en 5 minutes chrono.",
+    "image_url": null,
+    "duration_min": 5,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "petit-dejeuner"
+  },
+  {
+    "id": "11111111-0002-0000-0000-000000000000",
+    "title": "Tartines avocat-citron",
+    "description": "Le brunch incontournable : avocat écrasé, zeste de citron, graines de sésame.",
+    "image_url": null,
+    "duration_min": 10,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "petit-dejeuner"
+  },
+  {
+    "id": "11111111-0003-0000-0000-000000000000",
+    "title": "Pancakes moelleux",
+    "description": "Des pancakes épais et dorés, parfaits pour un dimanche matin en famille.",
+    "image_url": null,
+    "duration_min": 20,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "petit-dejeuner"
+  },
+  {
+    "id": "11111111-0004-0000-0000-000000000000",
+    "title": "Granola maison au miel",
+    "description": "Flocons d'avoine, miel, noix et fruits secs. Se conserve deux semaines.",
+    "image_url": null,
+    "duration_min": 35,
+    "difficulty": "facile",
+    "portions": 6,
+    "category": "petit-dejeuner"
+  },
+  {
+    "id": "11111111-0005-0000-0000-000000000000",
+    "title": "Smoothie bowl mangue-banane",
+    "description": "Frais, coloré, nourrissant. Une bonne dose d'énergie pour bien démarrer.",
+    "image_url": null,
+    "duration_min": 10,
+    "difficulty": "facile",
+    "portions": 1,
+    "category": "petit-dejeuner"
+  },
+  {
+    "id": "11111111-0006-0000-0000-000000000000",
+    "title": "Salade de tomates à la française",
+    "description": "Tomates, oignon rouge, basilic frais, vinaigrette moutarde. Simple et parfait.",
+    "image_url": null,
+    "duration_min": 10,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0007-0000-0000-000000000000",
+    "title": "Pâtes ail, huile, parmesan",
+    "description": "Le dîner de 15 minutes par excellence. Peu d'ingrédients, beaucoup de goût.",
+    "image_url": null,
+    "duration_min": 15,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0008-0000-0000-000000000000",
+    "title": "Omelette aux herbes",
+    "description": "Ciboulette, persil, une belle omelette baveuse comme en bistrot.",
+    "image_url": null,
+    "duration_min": 10,
+    "difficulty": "facile",
+    "portions": 1,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0009-0000-0000-000000000000",
+    "title": "Soupe de tomates express",
+    "description": "Tomates concassées, ail, basilic. Mixée et servie en moins de 20 minutes.",
+    "image_url": null,
+    "duration_min": 20,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0010-0000-0000-000000000000",
+    "title": "Quesadillas fromage-épinards",
+    "description": "Tortillas croustillantes, fromage fondu, épinards. Prêt en moins de 15 min.",
+    "image_url": null,
+    "duration_min": 15,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0011-0000-0000-000000000000",
+    "title": "Salade niçoise",
+    "description": "Le grand classique du Sud : thon, œufs, olives, haricots verts, anchois.",
+    "image_url": null,
+    "duration_min": 20,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0012-0000-0000-000000000000",
+    "title": "Quiche lorraine",
+    "description": "Lardons, crème, œufs dans une pâte brisée dorée. La vraie recette.",
+    "image_url": null,
+    "duration_min": 55,
+    "difficulty": "facile",
+    "portions": 6,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0013-0000-0000-000000000000",
+    "title": "Soupe à l'oignon gratinée",
+    "description": "Oignons caramélisés, bouillon, croûtons gratinés au fromage. Réconfort total.",
+    "image_url": null,
+    "duration_min": 60,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0014-0000-0000-000000000000",
+    "title": "Gratin dauphinois",
+    "description": "Pommes de terre fondantes, crème, ail. Le plat qui réchauffe les hivers.",
+    "image_url": null,
+    "duration_min": 90,
+    "difficulty": "facile",
+    "portions": 6,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0015-0000-0000-000000000000",
+    "title": "Blanquette de veau",
+    "description": "La blanquette de maman : veau tendre, sauce blanche crémeuse, champignons.",
+    "image_url": null,
+    "duration_min": 120,
+    "difficulty": "moyen",
+    "portions": 6,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0016-0000-0000-000000000000",
+    "title": "Poulet rôti au citron et thym",
+    "description": "Un poulet entier doré au four, parfumé au citron, ail et thym frais.",
+    "image_url": null,
+    "duration_min": 90,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0017-0000-0000-000000000000",
+    "title": "Ratatouille provençale",
+    "description": "Courgettes, aubergines, poivrons, tomates mijotées aux herbes de Provence.",
+    "image_url": null,
+    "duration_min": 75,
+    "difficulty": "moyen",
+    "portions": 6,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0018-0000-0000-000000000000",
+    "title": "Tarte aux poireaux",
+    "description": "Poireaux fondants, crème fraîche, pâte brisée maison. Goûteux et simple.",
+    "image_url": null,
+    "duration_min": 65,
+    "difficulty": "moyen",
+    "portions": 6,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0019-0000-0000-000000000000",
+    "title": "Curry de pois chiches à la tomate",
+    "description": "Épices dorées, pois chiches fondants, tomates mijotées. Vegan et généreux.",
+    "image_url": null,
+    "duration_min": 35,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0020-0000-0000-000000000000",
+    "title": "Buddha bowl quinoa-légumes rôtis",
+    "description": "Quinoa, légumes de saison rôtis, sauce tahini-citron. Coloré et nourrissant.",
+    "image_url": null,
+    "duration_min": 40,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0021-0000-0000-000000000000",
+    "title": "Dahl de lentilles corail",
+    "description": "Lentilles corail, lait de coco, curcuma, gingembre. Vegan et ultra réconfortant.",
+    "image_url": null,
+    "duration_min": 35,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0022-0000-0000-000000000000",
+    "title": "Tian de légumes",
+    "description": "Courgettes, tomates et pommes de terre en tranches fines, huile d'olive, herbes.",
+    "image_url": null,
+    "duration_min": 80,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0023-0000-0000-000000000000",
+    "title": "Burger maison classique",
+    "description": "Steak haché juteux, cheddar fondu, sauce maison, brioche toastée.",
+    "image_url": null,
+    "duration_min": 30,
+    "difficulty": "moyen",
+    "portions": 2,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0024-0000-0000-000000000000",
+    "title": "Tacos au poulet grillé",
+    "description": "Poulet mariné, guacamole, pico de gallo, tortillas chaudes.",
+    "image_url": null,
+    "duration_min": 30,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0025-0000-0000-000000000000",
+    "title": "Pad thaï aux crevettes",
+    "description": "Nouilles de riz sautées, crevettes, œuf, cacahuètes, sauce tamarind.",
+    "image_url": null,
+    "duration_min": 25,
+    "difficulty": "moyen",
+    "portions": 2,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0026-0000-0000-000000000000",
+    "title": "Riz cantonnais",
+    "description": "Riz sauté, œuf, petits pois, jambon, sauce soja. Le classique express.",
+    "image_url": null,
+    "duration_min": 20,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0027-0000-0000-000000000000",
+    "title": "Shakshuka",
+    "description": "Œufs pochés dans une sauce tomate épicée. Brunch du Moyen-Orient.",
+    "image_url": null,
+    "duration_min": 25,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0028-0000-0000-000000000000",
+    "title": "Tajine de poulet aux olives et citron confit",
+    "description": "Poulet fondant, olives, citron confit, épices marocaines. Parfumé et généreux.",
+    "image_url": null,
+    "duration_min": 75,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0029-0000-0000-000000000000",
+    "title": "Risotto aux champignons",
+    "description": "Arborio crémeux, champignons de Paris, parmesan. Douceur italienne.",
+    "image_url": null,
+    "duration_min": 40,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0030-0000-0000-000000000000",
+    "title": "Gyoza maison",
+    "description": "Raviolis japonais porc-chou, cuits à la vapeur puis grillés. Croustillants dehors, moelleux dedans.",
+    "image_url": null,
+    "duration_min": 60,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0031-0000-0000-000000000000",
+    "title": "Moules marinières",
+    "description": "Moules fraîches, vin blanc, échalotes, persil. Un classique de brasserie.",
+    "image_url": null,
+    "duration_min": 25,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0032-0000-0000-000000000000",
+    "title": "Croque-monsieur",
+    "description": "Pain de mie, jambon, béchamel, gruyère fondu. Le snack réconfortant ultime.",
+    "image_url": null,
+    "duration_min": 15,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0033-0000-0000-000000000000",
+    "title": "Tarte flambée alsacienne",
+    "description": "Pâte fine, fromage blanc, lardons, oignons. La pizza alsacienne.",
+    "image_url": null,
+    "duration_min": 45,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0034-0000-0000-000000000000",
+    "title": "Boeuf bourguignon",
+    "description": "Bœuf mijoté au vin rouge, lardons, champignons, carottes. La recette du dimanche.",
+    "image_url": null,
+    "duration_min": 180,
+    "difficulty": "difficile",
+    "portions": 6,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0035-0000-0000-000000000000",
+    "title": "Croissants maison",
+    "description": "Pâte feuilletée levée, beurre de qualité. Un projet du week-end qui en vaut la peine.",
+    "image_url": null,
+    "duration_min": 240,
+    "difficulty": "difficile",
+    "portions": 8,
+    "category": "petit-dejeuner"
+  },
+  {
+    "id": "11111111-0036-0000-0000-000000000000",
+    "title": "Mousse au chocolat",
+    "description": "Chocolat noir, blancs en neige, un dessert aérien et intense. 4 ingrédients.",
+    "image_url": null,
+    "duration_min": 20,
+    "difficulty": "facile",
+    "portions": 4,
+    "category": "dessert"
+  },
+  {
+    "id": "11111111-0037-0000-0000-000000000000",
+    "title": "Tarte au citron meringuée",
+    "description": "Pâte sablée, crème citron vive, meringue italienne dorée. Le grand classique.",
+    "image_url": null,
+    "duration_min": 90,
+    "difficulty": "difficile",
+    "portions": 8,
+    "category": "dessert"
+  },
+  {
+    "id": "11111111-0038-0000-0000-000000000000",
+    "title": "Fondant au chocolat",
+    "description": "Cœur coulant, croûte dorée. Le dessert qui impressionne toujours.",
+    "image_url": null,
+    "duration_min": 25,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "dessert"
+  },
+  {
+    "id": "11111111-0039-0000-0000-000000000000",
+    "title": "Crème brûlée",
+    "description": "Crème vanille onctueuse, caramel craquant. Le dessert bistrot par excellence.",
+    "image_url": null,
+    "duration_min": 60,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "dessert"
+  },
+  {
+    "id": "11111111-0040-0000-0000-000000000000",
+    "title": "Clafoutis aux cerises",
+    "description": "Cerises fraîches, appareil vanillé, doré au four. La recette de grand-mère.",
+    "image_url": null,
+    "duration_min": 50,
+    "difficulty": "facile",
+    "portions": 6,
+    "category": "dessert"
+  },
+  {
+    "id": "11111111-0041-0000-0000-000000000000",
+    "title": "Tiramisu classique",
+    "description": "Biscuits imbibés de café, mascarpone, cacao. La dolce vita en verrines.",
+    "image_url": null,
+    "duration_min": 30,
+    "difficulty": "moyen",
+    "portions": 6,
+    "category": "dessert"
+  },
+  {
+    "id": "11111111-0042-0000-0000-000000000000",
+    "title": "Soufflé au fromage",
+    "description": "Béchamel, gruyère, blancs en neige. Spectaculaire et délicat.",
+    "image_url": null,
+    "duration_min": 50,
+    "difficulty": "difficile",
+    "portions": 4,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0043-0000-0000-000000000000",
+    "title": "Filets de saumon à l'unilatérale",
+    "description": "Saumon croustillant côté peau, beurre citronné aux câpres. Prêt en 15 min.",
+    "image_url": null,
+    "duration_min": 15,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "rapide"
+  },
+  {
+    "id": "11111111-0044-0000-0000-000000000000",
+    "title": "Wok de légumes au gingembre",
+    "description": "Légumes croquants sautés, sauce soja, gingembre frais, sésame.",
+    "image_url": null,
+    "duration_min": 15,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0045-0000-0000-000000000000",
+    "title": "Houmous maison",
+    "description": "Pois chiches mixés, tahini, ail, citron, cumin. Bien meilleur que le commerce.",
+    "image_url": null,
+    "duration_min": 10,
+    "difficulty": "facile",
+    "portions": 6,
+    "category": "vegetarien"
+  },
+  {
+    "id": "11111111-0046-0000-0000-000000000000",
+    "title": "Poke bowl thon-avocat",
+    "description": "Riz vinaigré, thon mariné, avocat, edamame, sauce sésame-soja.",
+    "image_url": null,
+    "duration_min": 25,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0047-0000-0000-000000000000",
+    "title": "Lasagnes bolognaise",
+    "description": "Sauce bolognaise mijotée, béchamel onctueuse, pâtes fraîches. Le plat du dimanche.",
+    "image_url": null,
+    "duration_min": 120,
+    "difficulty": "difficile",
+    "portions": 8,
+    "category": "cuisine-monde"
+  },
+  {
+    "id": "11111111-0048-0000-0000-000000000000",
+    "title": "Galettes de sarrasin bretonnes",
+    "description": "Pâte de sarrasin, beurre, garniture au choix. La crêperie à la maison.",
+    "image_url": null,
+    "duration_min": 40,
+    "difficulty": "moyen",
+    "portions": 4,
+    "category": "cuisine-francaise"
+  },
+  {
+    "id": "11111111-0049-0000-0000-000000000000",
+    "title": "Pain perdu à la vanille",
+    "description": "Brioche dorée, crème vanillée, beurre noisette. Le dessert anti-gaspi parfait.",
+    "image_url": null,
+    "duration_min": 15,
+    "difficulty": "facile",
+    "portions": 2,
+    "category": "dessert"
+  },
+  {
+    "id": "11111111-0050-0000-0000-000000000000",
+    "title": "Ramen maison au poulet",
+    "description": "Bouillon de poulet parfumé, nouilles, œuf mollet, nori, menthe. Un projet savoureux.",
+    "image_url": null,
+    "duration_min": 120,
+    "difficulty": "difficile",
+    "portions": 2,
+    "category": "cuisine-monde"
+  }
+]

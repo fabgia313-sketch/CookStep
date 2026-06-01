@@ -1,0 +1,13 @@
+.env
+.env.local
+node_modules/
+.expo/
+dist/
+web-build/
+*.jks
+*.p8
+*.p12
+*.key
+.DS_Store
+Thumbs.db
+.vscode/

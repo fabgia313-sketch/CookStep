@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "CookStep",
+    "slug": "cookstep",
+    "version": "1.0.0",
+    "scheme": "cookstep",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "platforms": ["android"],
+    "android": {
+      "package": "com.cookstep.app",
+      "edgeToEdgeLayoutEnabled": true
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
