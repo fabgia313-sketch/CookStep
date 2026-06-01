@@ -18,7 +18,7 @@ interface RecipeState {
 
 export const useRecipeStore = create<RecipeState>((set, get) => ({
   recipes: [],
-  loading: false,
+  loading: true,  // true dès le 1er rendu → skeleton affiché immédiatement, pas de flash
   error: null,
   isOffline: false,
   searchQuery: '',

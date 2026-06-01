@@ -47,7 +47,13 @@ export default function ExplorerScreen() {
         />
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesContainer}>
+      {/* Hauteur fixe pour empêcher le ScrollView de s'étirer quand le contenu n'est pas encore là */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.categoriesScroll}
+        contentContainerStyle={styles.categoriesContainer}
+      >
         {CATEGORIES.map((cat) => {
           const isActive = cat === 'Tous' ? !selectedCategory : selectedCategory === cat;
           return (
@@ -58,28 +64,31 @@ export default function ExplorerScreen() {
         })}
       </ScrollView>
 
-      {loading && !refreshing ? (
-        <SkeletonGrid />
-      ) : error ? (
-        <View style={styles.center}>
-          <Text style={styles.errorText}>Impossible de charger les recettes</Text>
-          <Pressable onPress={fetchRecipes} style={styles.retryButton}>
-            <Text style={styles.retryText}>Réessayer</Text>
-          </Pressable>
-        </View>
-      ) : (
-        <FlatList
-          data={recipes}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-          contentContainerStyle={styles.listContent}
-          columnWrapperStyle={styles.row}
-          renderItem={({ item }) => <RecipeCard recipe={item} />}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={[Colors.primary]} />}
-          ListEmptyComponent={<View style={styles.center}><Text style={styles.emptyText}>Aucune recette trouvée</Text></View>}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
+      {/* flex: 1 garantit que cette zone occupe tout l'espace restant quel que soit l'état */}
+      <View style={styles.contentArea}>
+        {loading && !refreshing ? (
+          <SkeletonGrid />
+        ) : error ? (
+          <View style={styles.center}>
+            <Text style={styles.errorText}>Impossible de charger les recettes</Text>
+            <Pressable onPress={fetchRecipes} style={styles.retryButton}>
+              <Text style={styles.retryText}>Réessayer</Text>
+            </Pressable>
+          </View>
+        ) : (
+          <FlatList
+            data={recipes}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+            contentContainerStyle={styles.listContent}
+            columnWrapperStyle={styles.row}
+            renderItem={({ item }) => <RecipeCard recipe={item} />}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={[Colors.primary]} />}
+            ListEmptyComponent={<View style={styles.center}><Text style={styles.emptyText}>Aucune recette trouvée</Text></View>}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
+      </View>
     </SafeAreaView>
   );
 }
@@ -98,7 +107,9 @@ const styles = StyleSheet.create({
     elevation: 2, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.06, shadowRadius: 4,
   },
   searchInput: { flex: 1, fontSize: Typography.size.md, fontFamily: Typography.fontFamily.regular, color: Colors.text },
-  categoriesContainer: { paddingHorizontal: Spacing.screen.paddingH, gap: Spacing.sm, paddingBottom: Spacing.sm },
+  categoriesScroll: { height: 44, flexShrink: 0 }, // hauteur fixe — empêche l'étirement vertical
+  categoriesContainer: { paddingHorizontal: Spacing.screen.paddingH, gap: Spacing.sm, alignItems: 'center' },
+  contentArea: { flex: 1 }, // occupe tout l'espace restant — clé de voûte du layout
   chip: { paddingHorizontal: Spacing.md, paddingVertical: 6, borderRadius: Spacing.radius.full, backgroundColor: Colors.card, borderWidth: 1.5, borderColor: Colors.border },
   chipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
   chipText: { fontSize: Typography.size.sm, fontFamily: Typography.fontFamily.semiBold, color: Colors.textSecondary },
