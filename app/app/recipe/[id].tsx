@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { ArrowLeft, Clock, ChefHat, Users, Minus, Plus, Wifi } from 'lucide-react-native';
+import * as Haptics from 'expo-haptics';
 import { useRecipe } from '@/hooks/useRecipe';
 import { usePortions } from '@/hooks/usePortions';
 import { Colors } from '@/constants/Colors';
@@ -122,7 +123,13 @@ export default function RecipeDetailScreen() {
         {/* Fixed CTA */}
         <View style={styles.ctaContainer}>
           <SafeAreaView edges={['bottom']} style={styles.ctaSafeArea}>
-            <Pressable style={({ pressed }) => [styles.ctaButton, pressed && styles.ctaButtonPressed]} onPress={() => router.push(`/cook/${recipe.id}`)}>
+            <Pressable
+              style={({ pressed }) => [styles.ctaButton, pressed && styles.ctaButtonPressed]}
+              onPress={() => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                router.push(`/cook/${recipe.id}`);
+              }}
+            >
               <Text style={styles.ctaText}>C'est parti ! 🔥</Text>
             </Pressable>
           </SafeAreaView>

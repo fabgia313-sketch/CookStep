@@ -1,12 +1,13 @@
 import {
   View, Text, FlatList, TextInput, StyleSheet,
-  RefreshControl, ScrollView, Pressable, ActivityIndicator,
+  RefreshControl, ScrollView, Pressable,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react-native';
 import { useRecipeStore } from '@/stores/useRecipeStore';
 import { RecipeCard } from '@/components/recipe/RecipeCard';
+import { SkeletonGrid } from '@/components/ui/SkeletonLoader';
 import { Colors } from '@/constants/Colors';
 import { Typography } from '@/constants/Typography';
 import { Spacing } from '@/constants/Spacing';
@@ -58,7 +59,7 @@ export default function ExplorerScreen() {
       </ScrollView>
 
       {loading && !refreshing ? (
-        <View style={styles.center}><ActivityIndicator size="large" color={Colors.primary} /></View>
+        <SkeletonGrid />
       ) : error ? (
         <View style={styles.center}>
           <Text style={styles.errorText}>Impossible de charger les recettes</Text>

@@ -43,11 +43,32 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar style="dark" backgroundColor={Colors.background} />
-      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: Colors.background } }}>
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="auth" options={{ animation: 'slide_from_bottom', presentation: 'modal' }} />
-        <Stack.Screen name="recipe/[id]" options={{ animation: 'slide_from_right' }} />
-        <Stack.Screen name="cook/[id]" options={{ animation: 'slide_from_bottom', presentation: 'fullScreenModal' }} />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: Colors.background },
+          // Transition douce par défaut (fade 200ms)
+          animation: 'fade',
+          animationDuration: 200,
+        }}
+      >
+        {/* Tabs root — pas d'animation (le contenu s'affiche directement) */}
+        <Stack.Screen name="(tabs)" options={{ animation: 'none' }} />
+        {/* Auth — monte depuis le bas comme un modal */}
+        <Stack.Screen
+          name="auth"
+          options={{ animation: 'slide_from_bottom', presentation: 'modal', animationDuration: 280 }}
+        />
+        {/* Fiche recette — glisse depuis la droite (navigation naturelle) */}
+        <Stack.Screen
+          name="recipe/[id]"
+          options={{ animation: 'slide_from_right', animationDuration: 250 }}
+        />
+        {/* Mode cuisine — plein écran depuis le bas */}
+        <Stack.Screen
+          name="cook/[id]"
+          options={{ animation: 'slide_from_bottom', presentation: 'fullScreenModal', animationDuration: 320 }}
+        />
       </Stack>
     </>
   );

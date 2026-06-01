@@ -1,5 +1,11 @@
 import { Pressable, View, Text, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+} from 'react-native-reanimated';
+import * as Haptics from 'expo-haptics';
 import { Clock, Users, Heart } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import { Recipe } from '@/types';
@@ -20,7 +26,20 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
   const favorited = isFavorite(recipe.id);
   const difficultyColor = recipe.difficulty ? Colors.difficulty[recipe.difficulty] : Colors.textMuted;
 
+  // ── Heart pulse animation ──────────────────────────────────────────────────
+  const heartScale = useSharedValue(1);
+  const heartAnimStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: heartScale.value }],
+  }));
+
   const handleFavorite = () => {
+    // Pulse: scale up then spring back
+    heartScale.value = withSpring(1.35, { damping: 4, stiffness: 300 }, () => {
+      heartScale.value = withSpring(1, { damping: 10, stiffness: 200 });
+    });
+    // Light haptic tap
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    // Action
     if (user) toggle(recipe.id, user.id);
     else router.push('/auth');
   };
@@ -35,21 +54,30 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
           ? <Image source={{ uri: recipe.image_url }} style={styles.image} contentFit="cover" transition={200} />
           : <View style={[styles.image, styles.imagePlaceholder]}><Text style={styles.placeholderEmoji}>🍽️</Text></View>
         }
-        {/* Heart — top left */}
+
+        {/* Heart button — top left, with animated inner icon */}
         <Pressable
-          style={({ pressed }) => [styles.heartButton, pressed && { opacity: 0.7 }]}
+          style={styles.heartButton}
           onPress={handleFavorite}
           hitSlop={6}
         >
-          <Heart size={16} color={favorited ? Colors.primary : '#fff'} fill={favorited ? Colors.primary : 'transparent'} />
+          <Animated.View style={heartAnimStyle}>
+            <Heart
+              size={16}
+              color={favorited ? Colors.primary : '#fff'}
+              fill={favorited ? Colors.primary : 'transparent'}
+            />
+          </Animated.View>
         </Pressable>
-        {/* Difficulty — top right */}
+
+        {/* Difficulty badge — top right */}
         {recipe.difficulty && (
           <View style={[styles.badge, { backgroundColor: difficultyColor }]}>
             <Text style={styles.badgeText}>{recipe.difficulty}</Text>
           </View>
         )}
       </View>
+
       <View style={styles.content}>
         <Text style={styles.title} numberOfLines={2}>{recipe.title}</Text>
         <View style={styles.meta}>

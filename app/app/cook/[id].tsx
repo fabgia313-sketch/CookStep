@@ -2,6 +2,7 @@ import {
   View, Text, StyleSheet, Pressable, ScrollView, TouchableOpacity,
   ActivityIndicator, Modal, BackHandler,
 } from 'react-native';
+import * as Haptics from 'expo-haptics';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -292,8 +293,17 @@ export default function CookScreen() {
   const isFirst = currentStep === 0;
   const isLast = currentStep === steps.length - 1;
 
-  const handleNext = useCallback(() => { if (isLast) setIsDone(true); else setCurrentStep((s) => s + 1); }, [isLast]);
-  const handlePrev = useCallback(() => { if (!isFirst) setCurrentStep((s) => s - 1); }, [isFirst]);
+  const handleNext = useCallback(() => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    if (isLast) setIsDone(true); else setCurrentStep((s) => s + 1);
+  }, [isLast]);
+
+  const handlePrev = useCallback(() => {
+    if (!isFirst) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      setCurrentStep((s) => s - 1);
+    }
+  }, [isFirst]);
 
   if (loading) {
     return (
