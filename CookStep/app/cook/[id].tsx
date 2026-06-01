@@ -4,9 +4,10 @@ import {
   StyleSheet,
   Pressable,
   ScrollView,
+  TouchableOpacity,
   ActivityIndicator,
   Modal,
-  useWindowDimensions,
+  BackHandler,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -24,18 +25,22 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  ChevronRight as ChevronRightIcon,
   Play,
   Pause,
   RotateCcw,
   Wifi,
+  ArrowLeft,
+  RefreshCw,
 } from 'lucide-react-native';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRecipe } from '@/hooks/useRecipe';
 import { useTimer } from '@/hooks/useTimer';
+import { getSubstitution } from '@/lib/claude';
 import { Colors } from '@/constants/Colors';
 import { Typography } from '@/constants/Typography';
 import { Spacing } from '@/constants/Spacing';
-import type { Step } from '@/types';
+import type { Step, Ingredient } from '@/types';
 
 // ─── Circular timer constants ─────────────────────────────────────────────────
 const TIMER_SIZE = 200;
@@ -142,34 +147,244 @@ const timerStyles = StyleSheet.create({
 });
 
 // ─── SubstitutionModal ────────────────────────────────────────────────────────
+type ModalStep = 'list' | 'result';
+
+interface SubstitutionModalProps {
+  visible: boolean;
+  onClose: () => void;
+  recipeTitle: string;
+  ingredients: Ingredient[];
+  currentStepInstruction?: string;
+}
+
 function SubstitutionModal({
   visible,
   onClose,
-}: {
-  visible: boolean;
-  onClose: () => void;
-}) {
+  recipeTitle,
+  ingredients,
+  currentStepInstruction,
+}: SubstitutionModalProps) {
+  const [modalStep, setModalStep] = useState<ModalStep>('list');
+  const [selected, setSelected] = useState<Ingredient | null>(null);
+  const [streamText, setStreamText] = useState('');
+  const [isStreaming, setIsStreaming] = useState(false);
+  const [streamError, setStreamError] = useState<string | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
+  // Full reset whenever the modal opens
+  useEffect(() => {
+    if (visible) {
+      setModalStep('list');
+      setSelected(null);
+      setStreamText('');
+      setIsStreaming(false);
+      setStreamError(null);
+      abortRef.current?.abort();
+      abortRef.current = null;
+    }
+  }, [visible]);
+
+  // BackHandler — step back inside modal or close
+  useEffect(() => {
+    if (!visible) return;
+    const sub = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (modalStep === 'result') {
+        abortRef.current?.abort();
+        abortRef.current = null;
+        setModalStep('list');
+        setSelected(null);
+        setStreamText('');
+        setIsStreaming(false);
+        setStreamError(null);
+      } else {
+        handleClose();
+      }
+      return true; // Always intercept when modal is open
+    });
+    return () => sub.remove();
+  }, [visible, modalStep]);
+
+  const handleClose = () => {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    onClose();
+  };
+
+  const startSubstitution = async (ingredient: Ingredient) => {
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    setSelected(ingredient);
+    setModalStep('result');
+    setStreamText('');
+    setIsStreaming(true);
+    setStreamError(null);
+
+    await getSubstitution(
+      ingredient.name,
+      {
+        recipeTitle,
+        ingredients,
+        currentStep: currentStepInstruction,
+      },
+      (chunk) => setStreamText((prev) => prev + chunk),
+      () => setIsStreaming(false),
+      (error) => {
+        if (!controller.signal.aborted) {
+          setStreamError(error);
+          setIsStreaming(false);
+        }
+      },
+      controller.signal,
+    );
+  };
+
+  const handleRetry = () => {
+    if (selected) startSubstitution(selected);
+  };
+
+  const handleBackToList = () => {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setModalStep('list');
+    setSelected(null);
+    setStreamText('');
+    setIsStreaming(false);
+    setStreamError(null);
+  };
+
+  const displayText = streamText + (isStreaming && streamText.length > 0 ? '▌' : '');
+
+  const headerTitle =
+    modalStep === 'list'
+      ? "J'ai pas ça 🤔"
+      : selected
+        ? `Remplacer ${selected.name}`
+        : "J'ai pas ça 🤔";
+
   return (
     <Modal
       visible={visible}
       transparent
       animationType="slide"
-      onRequestClose={onClose}
+      onRequestClose={handleClose}
+      statusBarTranslucent
     >
-      <Pressable style={modalStyles.overlay} onPress={onClose}>
+      <Pressable style={modalStyles.overlay} onPress={handleClose}>
+        {/* Prevent tap-through on the sheet */}
         <Pressable style={modalStyles.sheet} onPress={() => {}}>
+
+          {/* Drag handle */}
           <View style={modalStyles.handle} />
-          <Text style={modalStyles.title}>J'ai pas ça 🤔</Text>
-          <Text style={modalStyles.subtitle}>
-            Bientôt disponible ✨
-          </Text>
-          <Text style={modalStyles.body}>
-            L'assistant IA pourra bientôt te suggérer une substitution intelligente pour
-            n'importe quel ingrédient. Tu n'auras jamais à abandonner une recette !
-          </Text>
-          <Pressable style={modalStyles.closeButton} onPress={onClose}>
-            <Text style={modalStyles.closeButtonText}>OK, j'attends !</Text>
-          </Pressable>
+
+          {/* Header row */}
+          <View style={modalStyles.headerRow}>
+            {modalStep === 'result' ? (
+              <Pressable
+                onPress={handleBackToList}
+                hitSlop={8}
+                style={modalStyles.headerBackBtn}
+              >
+                <ArrowLeft size={20} color={Colors.text} />
+              </Pressable>
+            ) : (
+              <View style={modalStyles.headerSpacer} />
+            )}
+
+            <Text style={modalStyles.headerTitle} numberOfLines={1}>
+              {headerTitle}
+            </Text>
+
+            <Pressable
+              onPress={handleClose}
+              hitSlop={8}
+              style={modalStyles.headerCloseBtn}
+            >
+              <X size={20} color={Colors.textSecondary} />
+            </Pressable>
+          </View>
+
+          {/* ── Step: list ── */}
+          {modalStep === 'list' && (
+            <>
+              <Text style={modalStyles.listSubtitle}>
+                Quel ingrédient te manque ?
+              </Text>
+              <ScrollView
+                style={modalStyles.ingredientsList}
+                showsVerticalScrollIndicator={false}
+                bounces={false}
+              >
+                {ingredients.map((ing) => {
+                  const qty =
+                    ing.quantity != null
+                      ? `${ing.quantity}${ing.unit ? ` ${ing.unit}` : ''} `
+                      : '';
+                  return (
+                    <TouchableOpacity
+                      key={ing.id}
+                      style={modalStyles.ingredientRow}
+                      onPress={() => startSubstitution(ing)}
+                      activeOpacity={0.65}
+                    >
+                      <View style={modalStyles.ingredientBullet} />
+                      <Text style={modalStyles.ingredientText} numberOfLines={1}>
+                        <Text style={modalStyles.ingredientQty}>{qty}</Text>
+                        {ing.name}
+                      </Text>
+                      <ChevronRightIcon size={16} color={Colors.textMuted} />
+                    </TouchableOpacity>
+                  );
+                })}
+              </ScrollView>
+            </>
+          )}
+
+          {/* ── Step: result ── */}
+          {modalStep === 'result' && (
+            <ScrollView
+              style={modalStyles.resultScroll}
+              showsVerticalScrollIndicator={false}
+              bounces={false}
+            >
+              {/* Loading — before first token */}
+              {isStreaming && streamText.length === 0 && (
+                <View style={modalStyles.loadingRow}>
+                  <ActivityIndicator size="small" color={Colors.primary} />
+                  <Text style={modalStyles.loadingText}>
+                    L'assistant réfléchit…
+                  </Text>
+                </View>
+              )}
+
+              {/* Streaming / final text */}
+              {displayText.length > 0 && (
+                <Text style={modalStyles.resultText}>{displayText}</Text>
+              )}
+
+              {/* Error */}
+              {streamError && (
+                <View style={modalStyles.errorBox}>
+                  <Text style={modalStyles.errorText}>{streamError}</Text>
+                  <Pressable
+                    style={({ pressed }) => [
+                      modalStyles.retryButton,
+                      pressed && { opacity: 0.8 },
+                    ]}
+                    onPress={handleRetry}
+                  >
+                    <RefreshCw size={15} color="#fff" />
+                    <Text style={modalStyles.retryButtonText}>Réessayer</Text>
+                  </Pressable>
+                </View>
+              )}
+
+              {/* Spacer so last line isn't cut off */}
+              <View style={{ height: Spacing.xl }} />
+            </ScrollView>
+          )}
+
         </Pressable>
       </Pressable>
     </Modal>
@@ -179,53 +394,138 @@ function SubstitutionModal({
 const modalStyles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.45)',
+    backgroundColor: 'rgba(0,0,0,0.48)',
     justifyContent: 'flex-end',
   },
   sheet: {
     backgroundColor: Colors.background,
     borderTopLeftRadius: Spacing.radius.xl,
     borderTopRightRadius: Spacing.radius.xl,
-    padding: Spacing.lg,
+    paddingHorizontal: Spacing.lg,
     paddingBottom: Spacing.xl,
-    gap: Spacing.md,
+    maxHeight: '72%',
   },
+
   handle: {
     width: 40,
     height: 4,
     borderRadius: 2,
     backgroundColor: Colors.border,
     alignSelf: 'center',
-    marginBottom: Spacing.sm,
+    marginTop: Spacing.sm,
+    marginBottom: Spacing.md,
   },
-  title: {
-    fontSize: Typography.size.xl,
+
+  // Header
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: Spacing.md,
+  },
+  headerBackBtn: {
+    width: 32,
+    height: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerSpacer: { width: 32 },
+  headerTitle: {
+    flex: 1,
+    textAlign: 'center',
+    fontSize: Typography.size.lg,
     fontFamily: Typography.fontFamily.extraBold,
     color: Colors.text,
-    textAlign: 'center',
   },
-  subtitle: {
+  headerCloseBtn: {
+    width: 32,
+    height: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  // Ingredient list
+  listSubtitle: {
+    fontSize: Typography.size.sm,
+    fontFamily: Typography.fontFamily.semiBold,
+    color: Colors.textSecondary,
+    marginBottom: Spacing.sm,
+  },
+  ingredientsList: {
+    maxHeight: 340,
+  },
+  ingredientRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: Spacing.md,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+    gap: Spacing.sm,
+  },
+  ingredientBullet: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: Colors.primary,
+    flexShrink: 0,
+  },
+  ingredientText: {
+    flex: 1,
     fontSize: Typography.size.md,
-    fontFamily: Typography.fontFamily.bold,
-    color: Colors.primary,
-    textAlign: 'center',
+    fontFamily: Typography.fontFamily.regular,
+    color: Colors.text,
   },
-  body: {
+  ingredientQty: {
+    fontFamily: Typography.fontFamily.semiBold,
+    color: Colors.textSecondary,
+  },
+
+  // Result
+  resultScroll: { maxHeight: 340 },
+  loadingRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+    paddingVertical: Spacing.lg,
+  },
+  loadingText: {
     fontSize: Typography.size.md,
     fontFamily: Typography.fontFamily.regular,
     color: Colors.textSecondary,
-    lineHeight: Typography.size.md * 1.6,
-    textAlign: 'center',
   },
-  closeButton: {
+  resultText: {
+    fontSize: Typography.size.md,
+    fontFamily: Typography.fontFamily.regular,
+    color: Colors.text,
+    lineHeight: Typography.size.md * 1.7,
+    paddingTop: Spacing.sm,
+  },
+
+  // Error
+  errorBox: {
+    backgroundColor: '#FDECEA',
+    borderRadius: Spacing.radius.md,
+    padding: Spacing.md,
+    gap: Spacing.md,
+    marginTop: Spacing.md,
+  },
+  errorText: {
+    fontSize: Typography.size.sm,
+    fontFamily: Typography.fontFamily.regular,
+    color: Colors.error,
+    lineHeight: Typography.size.sm * 1.5,
+  },
+  retryButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
     backgroundColor: Colors.primary,
     borderRadius: Spacing.radius.full,
-    paddingVertical: Spacing.md,
-    alignItems: 'center',
-    marginTop: Spacing.sm,
+    paddingVertical: Spacing.sm,
+    paddingHorizontal: Spacing.md,
+    alignSelf: 'flex-start',
   },
-  closeButtonText: {
-    fontSize: Typography.size.md,
+  retryButtonText: {
+    fontSize: Typography.size.sm,
     fontFamily: Typography.fontFamily.bold,
     color: '#fff',
   },
@@ -636,6 +936,9 @@ export default function CookScreen() {
       <SubstitutionModal
         visible={showModal}
         onClose={() => setShowModal(false)}
+        recipeTitle={recipe!.title}
+        ingredients={recipe!.ingredients}
+        currentStepInstruction={step?.instruction}
       />
     </>
   );
