@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import NetInfo from '@react-native-community/netinfo';
 import { supabase } from '@/lib/supabase';
 import { Recipe } from '@/types';
 
@@ -6,6 +7,7 @@ interface RecipeState {
   recipes: Recipe[];
   loading: boolean;
   error: string | null;
+  isOffline: boolean;
   searchQuery: string;
   selectedCategory: string | null;
   fetchRecipes: () => Promise<void>;
@@ -18,11 +20,22 @@ export const useRecipeStore = create<RecipeState>((set, get) => ({
   recipes: [],
   loading: false,
   error: null,
+  isOffline: false,
   searchQuery: '',
   selectedCategory: null,
 
   fetchRecipes: async () => {
     set({ loading: true, error: null });
+
+    const netState = await NetInfo.fetch();
+    if (!netState.isConnected) {
+      set({ isOffline: true, loading: false });
+      // On garde les recettes déjà en mémoire si disponibles
+      return;
+    }
+
+    set({ isOffline: false });
+
     const { data, error } = await supabase
       .from('recipes')
       .select('*')

@@ -25,6 +25,7 @@ export default function ExplorerScreen() {
     fetchRecipes,
     loading,
     error,
+    isOffline,
     setSearchQuery,
     setSelectedCategory,
     selectedCategory,
@@ -47,6 +48,12 @@ export default function ExplorerScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      {isOffline && (
+        <View style={styles.offlineBanner}>
+          <Text style={styles.offlineText}>📶 Mode hors ligne — Recettes en cache</Text>
+        </View>
+      )}
+
       <View style={styles.header}>
         <Text style={styles.title}>CookStep</Text>
         <Text style={styles.subtitle}>Qu'est-ce qu'on cuisine ?</Text>
@@ -202,5 +209,18 @@ const styles = StyleSheet.create({
     fontSize: Typography.size.md,
     fontFamily: Typography.fontFamily.regular,
     color: Colors.textSecondary,
+  },
+  offlineBanner: {
+    backgroundColor: '#FFF3CD',
+    paddingVertical: Spacing.sm,
+    paddingHorizontal: Spacing.screen.paddingH,
+    borderBottomWidth: 1,
+    borderBottomColor: '#FFEAA7',
+  },
+  offlineText: {
+    fontSize: Typography.size.sm,
+    fontFamily: Typography.fontFamily.semiBold,
+    color: '#856404',
+    textAlign: 'center',
   },
 });

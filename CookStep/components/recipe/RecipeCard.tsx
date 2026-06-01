@@ -1,4 +1,5 @@
-import { Pressable, View, Text, Image, StyleSheet } from 'react-native';
+import { Pressable, View, Text, StyleSheet } from 'react-native';
+import { Image } from 'expo-image';
 import { Clock, Users } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import { Recipe } from '@/types';
@@ -22,7 +23,13 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
     >
       <View style={styles.imageContainer}>
         {recipe.image_url ? (
-          <Image source={{ uri: recipe.image_url }} style={styles.image} resizeMode="cover" />
+          <Image
+            source={{ uri: recipe.image_url }}
+            style={styles.image}
+            contentFit="cover"
+            transition={200}
+            placeholder={{ thumbhash: undefined }}
+          />
         ) : (
           <View style={[styles.image, styles.imagePlaceholder]}>
             <Text style={styles.placeholderEmoji}>🍽️</Text>
