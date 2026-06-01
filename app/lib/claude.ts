@@ -20,8 +20,8 @@ interface SubstitutionContext {
   currentStep?: string;
 }
 
-// ─── Streaming SSE ────────────────────────────────────────────────────────────
-async function streamMessages(
+// ─── Simple fetch (pas de streaming — compatible Expo Go Android) ─────────────
+async function fetchMessage(
   messages: Message[],
   onChunk: (text: string) => void,
   onDone: () => void,
@@ -45,9 +45,8 @@ async function streamMessages(
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 512,
+        max_tokens: 500,
         system: SYSTEM_PROMPT,
-        stream: true,
         messages,
       }),
       signal,
@@ -69,56 +68,24 @@ async function streamMessages(
     return;
   }
 
-  const reader = response.body?.getReader();
-  if (!reader) {
-    onError("Le streaming n'est pas supporté sur cet appareil.");
-    return;
-  }
+  if (signal?.aborted) return;
 
-  const decoder = new TextDecoder('utf-8');
-  let buffer = '';
-
+  let data: { content: Array<{ text: string }> };
   try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      if (signal?.aborted) return;
-
-      buffer += decoder.decode(value, { stream: true });
-      const lines = buffer.split('\n');
-      buffer = lines.pop() ?? '';
-
-      for (const line of lines) {
-        const trimmed = line.trim();
-        if (!trimmed.startsWith('data: ')) continue;
-        const payload = trimmed.slice(6);
-        if (payload === '[DONE]') continue;
-        try {
-          const parsed = JSON.parse(payload) as {
-            type: string;
-            delta?: { type: string; text?: string };
-          };
-          if (
-            parsed.type === 'content_block_delta' &&
-            parsed.delta?.type === 'text_delta' &&
-            typeof parsed.delta.text === 'string'
-          ) {
-            onChunk(parsed.delta.text);
-          }
-        } catch {
-          if (__DEV__) console.warn('[claude.ts] SSE parse error:', trimmed);
-        }
-      }
-    }
+    data = await response.json() as { content: Array<{ text: string }> };
   } catch (err: unknown) {
-    if (signal?.aborted) return;
-    const msg = err instanceof Error ? err.message : 'Erreur de lecture';
-    onError(`Lecture interrompue : ${msg}`);
+    const msg = err instanceof Error ? err.message : 'Réponse invalide';
+    onError(`Impossible de lire la réponse : ${msg}`);
     return;
-  } finally {
-    reader.releaseLock();
   }
 
+  const text = data.content?.[0]?.text ?? '';
+  if (!text) {
+    onError("L'assistant n'a pas renvoyé de réponse.");
+    return;
+  }
+
+  onChunk(text);
   onDone();
 }
 
@@ -150,7 +117,7 @@ export async function getSubstitution(
     `\n\nPropose-moi 2-3 substitutions concrètes et rapides. ` +
     `Sois chaleureux, concis, et donne les proportions si nécessaire.`;
 
-  await streamMessages(
+  await fetchMessage(
     [{ role: 'user', content: userMessage }],
     onChunk, onDone, onError, signal,
   );

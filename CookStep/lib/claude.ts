@@ -20,18 +20,8 @@ interface SubstitutionContext {
   currentStep?: string;
 }
 
-// ─── SSE streaming parser ─────────────────────────────────────────────────────
-/**
- * Calls the Anthropic Messages API in streaming mode.
- * Parses SSE events line by line and fires callbacks for each text chunk.
- *
- * @param messages     - Conversation messages
- * @param onChunk      - Called with each text token received
- * @param onDone       - Called when stream ends successfully
- * @param onError      - Called with a human-readable error message on failure
- * @param signal       - Optional AbortSignal to cancel the request
- */
-async function streamMessages(
+// ─── Simple fetch (pas de streaming — compatible Expo Go Android) ─────────────
+async function fetchMessage(
   messages: Message[],
   onChunk: (text: string) => void,
   onDone: () => void,
@@ -39,14 +29,12 @@ async function streamMessages(
   signal?: AbortSignal,
 ): Promise<void> {
   const apiKey = process.env.EXPO_PUBLIC_ANTHROPIC_API_KEY;
-
   if (!apiKey) {
     onError('Clé API Anthropic manquante. Vérifie ton fichier .env.');
     return;
   }
 
   let response: Response;
-
   try {
     response = await fetch(API_URL, {
       method: 'POST',
@@ -57,15 +45,14 @@ async function streamMessages(
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 512,
+        max_tokens: 500,
         system: SYSTEM_PROMPT,
-        stream: true,
         messages,
       }),
       signal,
     });
   } catch (err: unknown) {
-    if (signal?.aborted) return; // Intentional abort — silent
+    if (signal?.aborted) return;
     const message = err instanceof Error ? err.message : 'Erreur réseau inconnue';
     onError(`Impossible de contacter l'assistant : ${message}`);
     return;
@@ -76,71 +63,29 @@ async function streamMessages(
     try {
       const body = await response.json() as { error?: { message?: string } };
       detail = body?.error?.message ?? '';
-    } catch {
-      // Ignore JSON parse error on error body
-    }
+    } catch { /* ignore */ }
     onError(`Erreur API (${response.status})${detail ? ` : ${detail}` : ''}.`);
     return;
   }
 
-  const reader = response.body?.getReader();
-  if (!reader) {
-    onError("Le streaming n'est pas supporté sur cet appareil.");
-    return;
-  }
+  if (signal?.aborted) return;
 
-  const decoder = new TextDecoder('utf-8');
-  let buffer = '';
-
+  let data: { content: Array<{ text: string }> };
   try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      if (signal?.aborted) return;
-
-      buffer += decoder.decode(value, { stream: true });
-
-      // Split on newlines — keep last (possibly incomplete) chunk in buffer
-      const lines = buffer.split('\n');
-      buffer = lines.pop() ?? '';
-
-      for (const line of lines) {
-        const trimmed = line.trim();
-        if (!trimmed.startsWith('data: ')) continue;
-
-        const payload = trimmed.slice(6); // Remove "data: "
-        if (payload === '[DONE]') continue;
-
-        try {
-          const parsed = JSON.parse(payload) as {
-            type: string;
-            delta?: { type: string; text?: string };
-          };
-
-          if (
-            parsed.type === 'content_block_delta' &&
-            parsed.delta?.type === 'text_delta' &&
-            typeof parsed.delta.text === 'string'
-          ) {
-            onChunk(parsed.delta.text);
-          }
-        } catch {
-          // Skip malformed JSON lines (ping events, etc.)
-          if (__DEV__) {
-            console.warn('[claude.ts] Unparseable SSE line:', trimmed);
-          }
-        }
-      }
-    }
+    data = await response.json() as { content: Array<{ text: string }> };
   } catch (err: unknown) {
-    if (signal?.aborted) return;
-    const message = err instanceof Error ? err.message : 'Erreur de lecture du stream';
-    onError(`Lecture interrompue : ${message}`);
+    const message = err instanceof Error ? err.message : 'Réponse invalide';
+    onError(`Impossible de lire la réponse : ${message}`);
     return;
-  } finally {
-    reader.releaseLock();
   }
 
+  const text = data.content?.[0]?.text ?? '';
+  if (!text) {
+    onError("L'assistant n'a pas renvoyé de réponse.");
+    return;
+  }
+
+  onChunk(text);
   onDone();
 }
 
@@ -183,7 +128,7 @@ export async function getSubstitution(
     `\n\nPropose-moi 2-3 substitutions concrètes et rapides. ` +
     `Sois chaleureux, concis, et donne les proportions si nécessaire.`;
 
-  await streamMessages(
+  await fetchMessage(
     [{ role: 'user', content: userMessage }],
     onChunk,
     onDone,
