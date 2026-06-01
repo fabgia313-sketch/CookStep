@@ -66,6 +66,71 @@
 
 ---
 
+## Session 2 — Connexion Supabase + Écran Accueil
+**Date** : 1 juin 2026
+**Outil** : Claude Code
+**Objectif** : Connecter l'app à Supabase et afficher l'écran Accueil / Catalogue de recettes
+**Statut** : ✅ Terminée
+
+### Ce qui a été fait
+- Fix `react@18.3.1` (18.3.2 n'existe pas sur npm)
+- `npm install` + installation `expo-image@~2.0.7` et `@react-native-community/netinfo@11.4.1`
+- `.env` rempli avec les vraies clés Supabase (récupérées via MCP, ignoré par git)
+- `lib/supabase.ts` — déjà correct, aucune modification nécessaire
+- `types/index.ts` — déjà complet, aucune modification nécessaire
+- `stores/useRecipeStore.ts` — ajout vérification offline avec NetInfo
+- `components/recipe/RecipeCard.tsx` — migré de `Image` RN vers `expo-image`
+- `app/(tabs)/index.tsx` — ajout bandeau hors-ligne
+
+### Fichiers modifiés
+- `package.json` (fix react version + ajout des 2 packages)
+- `package-lock.json` (généré)
+- `stores/useRecipeStore.ts`
+- `components/recipe/RecipeCard.tsx`
+- `app/(tabs)/index.tsx`
+- `.env` (non poussé sur git)
+
+### Problèmes rencontrés
+- `react@18.3.2` n'existe pas → corrigé en `18.3.1`
+- `npm install` sans `--legacy-peer-deps` échouait → résolu
+
+### Prochaine session
+**Objectif** : Créer l'écran Fiche Recette (`app/recipe/[id].tsx`)
+
+---
+
+## Session 3 — Écran Fiche Recette
+**Date** : 1 juin 2026
+**Outil** : Claude Code
+**Objectif** : Créer l'écran Fiche Recette complet avec portions, expo-image, bouton fixe
+**Statut** : ✅ Terminée
+
+### Ce qui a été fait
+- Réécriture complète de `app/recipe/[id].tsx`
+  - Photo hero pleine largeur (300px) avec `expo-image` + bouton retour flottant
+  - Titre, description, badges durée / difficulté / catégorie
+  - Stepper portions − / + connecté au hook `usePortions` (quantités ajustées en temps réel)
+  - Liste ingrédients avec quantités recalculées + hint d'ajustement
+  - Bouton **"C'est parti ! 🔥"** fixe en bas de l'écran (hors ScrollView, SafeAreaView bottom)
+  - États loading / error / offline avec écrans dédiés et bouton "Réessayer"
+- Mise à jour `hooks/useRecipe.ts` — ajout gestion offline (NetInfo) + `refetch()`
+- Correction bug TypeScript préexistant dans `components/ui/Button.tsx` (mélange ViewStyle/TextStyle)
+- 0 erreur TypeScript (`tsc --noEmit`)
+
+### Fichiers modifiés
+- `app/recipe/[id].tsx` (réécriture complète)
+- `hooks/useRecipe.ts` (ajout offline + refetch)
+- `components/ui/Button.tsx` (fix TypeScript)
+- `SESSIONS.md` (ce fichier)
+
+### Problèmes rencontrés
+- `Button.tsx` avait une erreur TypeScript latente (TextStyle dans array ViewStyle) → corrigé en séparant les StyleSheet par domaine
+
+### Prochaine session
+**Objectif** : Créer le Mode Cuisine (`app/cook/[id].tsx`) — étape en grand, timer circulaire, bouton "J'ai pas ça 🤔"
+
+---
+
 _Template pour les prochaines sessions :_
 
 ## Session N — [Nom]
