@@ -169,6 +169,73 @@
 
 ---
 
+## Session 5 — Authentification + Favoris
+**Date** : 1 juin 2026
+**Outil** : Claude Code
+**Objectif** : Auth Supabase (email + Google), store favoris, écrans Favoris et Profil
+**Statut** : ✅ Terminée
+
+### Ce qui a été fait
+- Installation `expo-auth-session@~6.0.3` (pour `makeRedirectUri` Google OAuth)
+- **`stores/useAuthStore.ts`** (nouveau)
+  - Session Supabase, user, initialized, loading, error
+  - `initialize()` : lit la session AsyncStorage + écoute `onAuthStateChange`
+  - `signIn`, `signUp`, `signOut`, `signInWithGoogle` (WebBrowser + makeRedirectUri scheme `cookstep://`)
+- **`stores/useFavoritesStore.ts`** (nouveau)
+  - `fetchFavorites(userId)` : 2 requêtes Supabase (ids puis recettes complètes)
+  - `toggle(recipeId, userId)` : mise à jour optimiste + sync Supabase (RLS `auth.uid()`)
+  - `isFavorite(recipeId)`, `clear()`
+- **`app/auth.tsx`** (nouveau)
+  - Mode switcher Connexion / Inscription (tab pill)
+  - Inputs email + mot de passe (avec show/hide password)
+  - Validation locale + affichage erreurs Supabase
+  - Message succès après inscription (vérification email)
+  - Bouton "Continuer avec Google" (code prêt, nécessite config Supabase dashboard)
+  - KeyboardAvoidingView + ScrollView pour Android
+- **`app/_layout.tsx`** (modifié)
+  - Appel `initialize()` au démarrage avec callback : charge les favoris si session active, clear si déconnexion
+  - Ajout `<Stack.Screen name="auth">` (modal slide from bottom)
+- **`components/recipe/RecipeCard.tsx`** (modifié)
+  - Bouton ❤️ flottant en haut à gauche de l'image
+  - Si connecté → toggle favori (optimiste) ; si non connecté → redirect vers `/auth`
+  - Couleur orange #FF6B35 si favori, blanc transparent sinon
+- **`app/(tabs)/favorites.tsx`** (réécrit)
+  - Si non connecté : écran d'invitation avec bouton "Se connecter"
+  - Si connecté + 0 favoris : écran vide avec bouton "Explorer les recettes"
+  - Si connecté + favoris : grille 2 colonnes avec `RecipeCard` + pull-to-refresh
+  - Compteur de favoris dans le header
+- **`app/(tabs)/profile.tsx`** (réécrit)
+  - Si non connecté : avatar placeholder + boutons Se connecter / Créer un compte
+  - Si connecté : avatar initiale colorée, nom (metadata Google ou email), stats favoris, bouton déconnexion avec `Alert.alert`
+- 0 erreur TypeScript (`tsc --noEmit`)
+
+### Fichiers créés
+- `stores/useAuthStore.ts`
+- `stores/useFavoritesStore.ts`
+- `app/auth.tsx`
+
+### Fichiers modifiés
+- `package.json` (+ expo-auth-session)
+- `app/_layout.tsx`
+- `app/(tabs)/favorites.tsx`
+- `app/(tabs)/profile.tsx`
+- `components/recipe/RecipeCard.tsx`
+- `SESSIONS.md`
+
+### Problèmes rencontrés
+- Aucun — 0 erreur TypeScript dès le premier passage
+
+### Notes de configuration Google OAuth
+Pour activer la connexion Google :
+1. Supabase dashboard → Authentication → Providers → Google : activer + copier les Client ID/Secret
+2. Google Cloud Console → OAuth 2.0 → ajouter `cookstep://auth/callback` comme redirect URI
+3. Supabase dashboard → URL Configuration → ajouter `cookstep://auth/callback` comme redirect URL
+
+### Prochaine session
+**Objectif** : Polishing UI — animations de transition, skeleton loaders, haptic feedback, test sur appareil Android réel
+
+---
+
 _Template pour les prochaines sessions :_
 
 ## Session N — [Nom]

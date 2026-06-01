@@ -1,11 +1,13 @@
 import { Pressable, View, Text, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
-import { Clock, Users } from 'lucide-react-native';
+import { Clock, Users, Heart } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import { Recipe } from '@/types';
 import { Colors } from '@/constants/Colors';
 import { Typography } from '@/constants/Typography';
 import { Spacing } from '@/constants/Spacing';
+import { useAuthStore } from '@/stores/useAuthStore';
+import { useFavoritesStore } from '@/stores/useFavoritesStore';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -13,8 +15,23 @@ interface RecipeCardProps {
 
 export function RecipeCard({ recipe }: RecipeCardProps) {
   const router = useRouter();
+  const { user } = useAuthStore();
+  const { isFavorite, toggle } = useFavoritesStore();
 
-  const difficultyColor = recipe.difficulty ? Colors.difficulty[recipe.difficulty] : Colors.textMuted;
+  const difficultyColor = recipe.difficulty
+    ? Colors.difficulty[recipe.difficulty]
+    : Colors.textMuted;
+
+  const favorited = isFavorite(recipe.id);
+
+  const handleFavoritePress = (e: { stopPropagation?: () => void }) => {
+    // Prevent triggering card navigation
+    if (user) {
+      toggle(recipe.id, user.id);
+    } else {
+      router.push('/auth');
+    }
+  };
 
   return (
     <Pressable
@@ -28,21 +45,38 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
             style={styles.image}
             contentFit="cover"
             transition={200}
-            placeholder={{ thumbhash: undefined }}
           />
         ) : (
           <View style={[styles.image, styles.imagePlaceholder]}>
             <Text style={styles.placeholderEmoji}>🍽️</Text>
           </View>
         )}
+
+        {/* Favorite heart button — top left */}
+        <Pressable
+          style={({ pressed }) => [styles.heartButton, pressed && { opacity: 0.7 }]}
+          onPress={handleFavoritePress}
+          hitSlop={6}
+        >
+          <Heart
+            size={16}
+            color={favorited ? Colors.primary : '#fff'}
+            fill={favorited ? Colors.primary : 'transparent'}
+          />
+        </Pressable>
+
+        {/* Difficulty badge — top right */}
         {recipe.difficulty && (
           <View style={[styles.badge, { backgroundColor: difficultyColor }]}>
             <Text style={styles.badgeText}>{recipe.difficulty}</Text>
           </View>
         )}
       </View>
+
       <View style={styles.content}>
-        <Text style={styles.title} numberOfLines={2}>{recipe.title}</Text>
+        <Text style={styles.title} numberOfLines={2}>
+          {recipe.title}
+        </Text>
         <View style={styles.meta}>
           {recipe.duration_min != null && (
             <View style={styles.metaItem}>
@@ -74,8 +108,25 @@ const styles = StyleSheet.create({
   },
   imageContainer: { position: 'relative' },
   image: { width: '100%', aspectRatio: 1 },
-  imagePlaceholder: { backgroundColor: '#F0EAE0', alignItems: 'center', justifyContent: 'center' },
+  imagePlaceholder: {
+    backgroundColor: '#F0EAE0',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   placeholderEmoji: { fontSize: 32 },
+
+  heartButton: {
+    position: 'absolute',
+    top: Spacing.sm,
+    left: Spacing.sm,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: 'rgba(0,0,0,0.32)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   badge: {
     position: 'absolute',
     top: Spacing.sm,
@@ -90,6 +141,7 @@ const styles = StyleSheet.create({
     fontFamily: Typography.fontFamily.bold,
     textTransform: 'capitalize',
   },
+
   content: { padding: Spacing.sm, gap: 4 },
   title: {
     fontSize: Typography.size.sm,

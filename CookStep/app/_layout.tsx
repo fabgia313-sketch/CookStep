@@ -10,6 +10,8 @@ import {
   Nunito_800ExtraBold,
 } from '@expo-google-fonts/nunito';
 import { Colors } from '@/constants/Colors';
+import { useAuthStore } from '@/stores/useAuthStore';
+import { useFavoritesStore } from '@/stores/useFavoritesStore';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -20,6 +22,22 @@ export default function RootLayout() {
     Nunito_700Bold,
     Nunito_800ExtraBold,
   });
+
+  const { initialize } = useAuthStore();
+  const { fetchFavorites, clear } = useFavoritesStore();
+
+  useEffect(() => {
+    // Initialize auth and subscribe to changes
+    const unsubscribe = initialize((session) => {
+      if (session?.user) {
+        fetchFavorites(session.user.id);
+      } else {
+        clear();
+      }
+    });
+
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
@@ -41,6 +59,10 @@ export default function RootLayout() {
         }}
       >
         <Stack.Screen name="(tabs)" />
+        <Stack.Screen
+          name="auth"
+          options={{ animation: 'slide_from_bottom', presentation: 'modal' }}
+        />
         <Stack.Screen name="recipe/[id]" options={{ animation: 'slide_from_right' }} />
         <Stack.Screen
           name="cook/[id]"
