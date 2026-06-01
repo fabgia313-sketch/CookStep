@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "CookStep",
+    "slug": "cookstep",
+    "version": "1.0.0",
+    "scheme": "cookstep",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "platforms": ["android"],
+    "android": {
+      "package": "com.cookstep.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FF6B35"
+      },
+      "edgeToEdgeLayoutEnabled": true
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
